@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Archivo, Montserrat } from "next/font/google";
 import { ThemeProvider } from "@/client/shared/providers/ThemeProvider";
+import { SmoothScrolling } from "@/client/shared/ui/SmoothScrolling";
 import "./globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
   axes: ["wdth"], // Enable variable width axis
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -22,14 +28,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${archivo.variable} antialiased bg-background text-foreground`}
+        className={`${archivo.variable} ${montserrat.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
+          <SmoothScrolling />
           {children}
         </ThemeProvider>
       </body>

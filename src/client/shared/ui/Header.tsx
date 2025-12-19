@@ -42,8 +42,8 @@ export function Header() {
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center group z-50 relative">
-             <div className="text-xl font-bold tracking-widest uppercase text-foreground">HUB</div>
-             <span className="text-xl font-bold tracking-widest text-orange-500 uppercase">Di</span>
+             <div className="text-xl font-bold tracking-widest text-[var(--color-brand)] uppercase">HUB</div>
+             <span className="text-xl font-bold tracking-widest uppercase text-foreground">Di</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -99,8 +99,8 @@ export function Header() {
         </nav>
         
         {/* Background decorative element */}
-        <div className="absolute bottom-10 left-0 w-full text-center text-muted-foreground/20 text-sm tracking-[0.5em] uppercase">
-          Minimal Design
+        <div className="absolute underline bottom-10 left-0 w-full text-center text-muted-foreground/20 text-sm tracking-[0.5em] uppercase">
+          @2023 HUBDi.
         </div>
       </div>
     </>

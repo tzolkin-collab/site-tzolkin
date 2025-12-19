@@ -33,8 +33,8 @@ export function Footer() {
             <div className="mb-12">
               <Link href="/" className="inline-block group">
                 <div className="flex items-center">
-                  <span className="text-4xl md:text-6xl font-bold tracking-widest uppercase text-foreground">HUB</span>
-                  <span className="text-4xl md:text-6xl font-bold tracking-widest text-orange-500 uppercase">Di</span>
+                  <span className="text-4xl md:text-6xl font-bold tracking-widest uppercase text-brand">HUB</span>
+                  <span className="text-4xl md:text-6xl font-bold tracking-widest text-foreground uppercase">Di</span>
                 </div>
               </Link>
               <p className="mt-6 text-muted-foreground text-lg max-w-md leading-relaxed">
@@ -44,7 +44,7 @@ export function Footer() {
             
             <a 
               href="mailto:hello@hubdi.com" 
-              className="inline-flex items-center gap-2 text-2xl md:text-3xl font-medium hover:text-orange-500 transition-colors group w-fit"
+              className="inline-flex items-center gap-2 text-2xl md:text-3xl font-medium hover:text-brand transition-colors group w-fit"
             >
               <span>Vamos conversar?</span>
               <ArrowUpRight className="w-8 h-8 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
@@ -65,7 +65,7 @@ export function Footer() {
                       className="text-lg text-foreground/70 hover:text-foreground transition-colors inline-block relative group"
                     >
                       {link.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                      <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand transition-all duration-300 group-hover:w-full" />
                     </Link>
                   </li>
                 ))}
@@ -82,7 +82,7 @@ export function Footer() {
                       href={social.href}
                       className="flex items-center gap-3 text-lg text-foreground/70 hover:text-foreground transition-colors group"
                     >
-                      <social.icon size={20} className="group-hover:text-orange-500 transition-colors" />
+                      <social.icon size={20} className="group-hover:text-brand transition-colors" />
                       <span>{social.label}</span>
                     </a>
                   </li>
