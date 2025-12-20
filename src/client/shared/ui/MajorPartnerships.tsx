@@ -18,7 +18,7 @@ export function MajorPartnerships({ partnerships }: MajorPartnershipsProps) {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
-           className="mb-16 md:mb-24 flex flex-col items-start"
+           className="mb-16 md:mb-24 items-start"
         >
           <h2 className="text-[8vw] md:text-[4vw] leading-[0.9] font-bold tracking-tight text-foreground uppercase mix-blend-normal">
             Grandes <br/>
@@ -69,7 +69,7 @@ Unimos posicionamento e conteúdo para transformar negócios em movimentos autê
                     src={project.logo} 
                     alt={`${project.name} Project`}
                     fill 
-                    className={`object-contain transition-all duration-500 ${project.bright ? 'brightness-0' : ''} ${project.invert ? 'invert dark:invert-0' : ''}`}
+                    className={`object-contain ${project.bright ? 'brightness-0' : ''} ${project.invert ? 'invert dark:invert-0' : ''}`}
                   />
                 </div>
               </div>

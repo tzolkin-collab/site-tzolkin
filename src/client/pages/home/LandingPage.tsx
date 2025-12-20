@@ -15,8 +15,8 @@ import { projects } from '@/client/shared/data/projects';
 
 export function LandingPage() {
   const marqueeItems = [
-    "Design", "Strategy", "Development", "Branding",
-    "Design", "Strategy", "Development", "Branding"
+    "Design", "Strategy", "Marketing", "Branding",
+    "Design", "Strategy", "Marketing", "Branding"
   ];
 
   const regularProjects = projects.filter(p => p.category !== 'partnership');
@@ -41,7 +41,7 @@ export function LandingPage() {
             </h1>
           </div>
           
-          <div className="mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-end gap-8 animate-[fadeIn_1s_var(--ease-sophisticated)_0.5s_forwards] opacity-0">
+          <div className="mt-12 md:mt-18 flex flex-col md:flex-row justify-between items-end gap-8 animate-[fadeIn_1s_var(--ease-sophisticated)_0.5s_forwards] opacity-0">
             <p className="max-w-md text-lg md:text-xl text-muted-foreground dark:text-gray-0 leading-relaxed font-helvica">
               Com a <span className="text-brand font-bold">metodologia</span> certa para alinhar <span className="text-brand font-bold">estratégia</span>, <span className="text-brand font-bold">identidade </span>e <span className="text-brand font-bold">comunicação</span>, <br/>
                tirar sua marca do genérico e construir uma presença que é clara, desejada e preparada pra vender todos os dias.
@@ -61,9 +61,15 @@ export function LandingPage() {
 
       {/* Carousel Section */}
       <section className="bg-background relative overflow-hidden md:py-0">
-        <div className="w-full mb-16 md:mb-24 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-12 animate-[fadeIn_1s_var(--ease-sophisticated)_0.5s_forwards] opacity-0">
+        <div className="w-full md:mb-24 flex flex-col lg:flex-row justify-between gap-12 lg:gap-0 animate-[fadeIn_1s_var(--ease-sophisticated)_0.5s_forwards] opacity-0">
             {/* Text Content */}
-            <p className="max-w-md px-4 md:pr-2 pr-8 pt-10 text-xl md:text-2xl text-black dark:text-white leading-relaxed font-helvica lg:text-left text-left">
+            <div className="text-[0vw] md:text-[4vw] md:pt-15 md:border-t-[5px] md:border-r-[2px] md:rounded-tr-[1px] border-brand mx:pl-0 md:pr-4 md:pl-2 leading-[0.9] font-bold tracking-tight text-foreground uppercase mix-blend-normal">
+             <span className="text-brand">CASES</span><br/>
+             DE<br/>
+            <span className="text-brand">SUCESSO</span><br/>
+            HUB<span className="text-brand">DI</span>
+            </div>
+            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
               Se sua <span className="text-brand font-bold">marca</span> não anda, não é por falta de esforço.
               É por falta de <span className="text-brand font-bold">direção</span>.
               Hoje ou você <span className="text-brand font-bold">tem números</span> e não tem <span className="text-brand font-bold">venda</span>, ou não tem nem números. 
@@ -71,13 +77,11 @@ export function LandingPage() {
             </p>
             
             {/* Center Card */}
-             <div className="flex w-full bg-black dark:bg-white py-[45.80px] flex flex-col items-center justify-center group overflow-hidden dark:border-black/5 mx-auto lg:mx-0 transition-colors duration-500 animate-[slideRight_1s_var(--ease-sophisticated)_0.7s_forwards] opacity-0">
+             <div className="flex w-full bg-black dark:bg-white md:border-b-[5px] border-brand py-[45.80px] flex flex-col items-center justify-center group overflow-hidden mx-auto lg:mx-0 transition-colors duration-500 animate-[fadeIn_1s_var(--ease-sophisticated)_0.1s_forwards] opacity-0">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand/20 blur-2xl rounded-full translate-y-1/2 -translate-x-1/2" />
-                
                 <div className="relative z-10 text-center space-y-6 px-6 md:px-12">
-                  <Link href="/portfolio" className="group flex items-center justify-center gap-2 text-white dark:text-black hover:text-brand font-bold text-xl md:text-xl leading-relaxed font-helvica transition-colors">
+                  <Link href="/portfolio" className="group flex items-center justify-center text-white dark:text-black hover:text-brand font-bold text-xl md:text-xl leading-relaxed font-helvica transition-colors">
                      <span className="text-brand">HUB</span>
                      <span>DI</span>
                      <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -87,19 +91,17 @@ export function LandingPage() {
                     <ArrowRight className="w-8 h-8 -rotate-45" />
                   </div>
                   <h3 className="text-2xl font-bold text-white dark:text-black uppercase tracking-tight transition-colors duration-500">
-                    Transforme sua marca
+                    Sem enrolação
                   </h3>
                   <p className="text-neutral-400 dark:text-neutral-600 text-sm leading-relaxed transition-colors duration-500">
-                    Descubra como nossa metodologia pode elevar seu negócio para o próximo nível de resultado.
+                    A Hubdi é uma estrutura de crescimento para marcas que buscam se destacar. Unimos posicionamento e conteúdo para transformar negócios em movimentos autênticos e desejados.
                   </p>
-                  <Button variant="primary" className="w-full mt-4 bg-brand hover:bg-brand/90 text-black font-bold border-none">
-                    Falar com especialista
-                  </Button>
                 </div>
              </div>
         </div>
         <div className="max-w-full relative z-10">
            <PortfolioCarousel projects={regularProjects} />
+           
 
            {/* View More Button */}
            <div className="flex justify-center w-full mt-20">

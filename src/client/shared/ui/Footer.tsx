@@ -37,7 +37,7 @@ export function Footer() {
                   <span className="text-4xl md:text-6xl font-bold tracking-widest text-foreground uppercase">Di</span>
                 </div>
               </Link>
-              <p className="mt-6 text-muted-foreground text-lg max-w-md leading-relaxed">
+              <p className="mt-6 text-black dark:text-white text-lg max-w-md leading-relaxed">
                 Criamos experiências digitais que conectam marcas a pessoas através de design estratégico e tecnologia de ponta.
               </p>
             </div>
@@ -56,7 +56,7 @@ export function Footer() {
             
             {/* Quick Links */}
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8">Menu</h4>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">Menu</h4>
               <ul className="space-y-4">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
@@ -74,7 +74,7 @@ export function Footer() {
 
             {/* Socials */}
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-8">Social</h4>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">Social</h4>
               <ul className="space-y-4">
                 {socialLinks.map((social) => (
                   <li key={social.label}>
@@ -93,7 +93,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-foreground/10 text-muted-foreground text-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-foreground/10 text-black dark:text-white text-sm">
           <div className="mb-4 md:mb-0">
             &copy; {currentYear} HUBDi Digital. Todos os direitos reservados.
           </div>

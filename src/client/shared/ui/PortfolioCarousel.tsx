@@ -27,7 +27,7 @@ export function PortfolioCarousel({ projects }: PortfolioCarouselProps) {
         {projects.map((project, index) => (
           <div 
             key={`${project.name}-${index}`} 
-            className="flex-[0_0_85%] sm:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 pl-4 relative pt-32"
+            className="flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_15%] lg:flex-[0_0_20%] min-w-0 pl-4 relative pt-28"
           >
              <motion.div 
                initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export function PortfolioCarousel({ projects }: PortfolioCarouselProps) {
                  />
                </div>
                
-               <div className="aspect-square bg-neutral-950 dark:bg-white mb-6 overflow-hidden relative flex items-center justify-center p-12 transition-all duration-500 group-hover:-translate-y-2 z-10 shadow-2xl rounded-sm">
+               <div className="aspect-square md:rounded-[240px] bg-neutral-950 dark:bg-white mb-6 overflow-hidden relative flex items-center justify-center p-12 transition-all duration-500 group-hover:-translate-y-2 z-10 shadow-2xl rounded-sm">
                 {/* Main Content - Project Logo */}
                 <div className="relative w-full h-full z-10 transition-transform duration-500 group-hover:scale-105">
                   <Image 
