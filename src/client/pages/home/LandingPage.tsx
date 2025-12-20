@@ -9,7 +9,8 @@ import { Header } from '@/client/shared/ui/Header';
 import { Footer } from '@/client/shared/ui/Footer';
 import { PortfolioCarousel } from '@/client/shared/ui/PortfolioCarousel';
 import { MajorPartnerships } from '@/client/shared/ui/MajorPartnerships';
-import { ArrowRight, MoveRight } from 'lucide-react';
+import { ServicesSection } from '@/client/shared/ui/ServicesSection';
+import { ArrowRight, MoveRight, Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { projects } from '@/client/shared/data/projects';
 
@@ -69,7 +70,8 @@ export function LandingPage() {
             <span className="text-brand">SUCESSO</span><br/>
             HUB<span className="text-brand">DI</span>
             </div>
-            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
+            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white font-montserrat dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
+              <Quote className="w-8 h-8 text-black dark:text-white mb-2 fill-white darK:fill-black" />
               Se sua <span className="text-brand font-bold">marca</span> não anda, não é por falta de esforço.
               É por falta de <span className="text-brand font-bold">direção</span>.
               Hoje ou você <span className="text-brand font-bold">tem números</span> e não tem <span className="text-brand font-bold">venda</span>, ou não tem nem números. 
@@ -104,13 +106,13 @@ export function LandingPage() {
            
 
            {/* View More Button */}
-           <div className="flex justify-center w-full mt-20">
+           <div className="flex justify-center w-ful mt-20 bg-black text-white dark:bg-white dark:text-black">
              <Link href="/portfolio">
                <button 
                  className="group relative flex items-center gap-4 px-8 py-4 text-xl font-medium overflow-hidden rounded-full hover:bg-foreground/5 transition-colors duration-300"
                >
                  <span className="relative z-10">Ver todos cases</span>
-                 <div className="relative w-12 h-12 flex items-center justify-center rounded-full border border-foreground/20 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-300">
+                 <div className="relative w-12 h-12 flex items-center justify-center rounded-full border-2 border-white/30 dark:border-black/20 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-300">
                    <MoveRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                  </div>
                </button>
@@ -121,6 +123,9 @@ export function LandingPage() {
 
       {/* Major Partnerships Section */}
       <MajorPartnerships partnerships={partnershipProjects} />
+
+      {/* Services Section */}
+      <ServicesSection />
 
       {/* Footer */}
       <Footer />

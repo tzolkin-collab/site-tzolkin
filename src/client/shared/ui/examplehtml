@@ -1,0 +1,113 @@
+<div class="elementor-element elementor-element-7ca5344d e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="7ca5344d" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner" style="position: relative;">
+		<div class="elementor-element elementor-element-2f45e2fa e-con-full card e-flex e-con e-child elementor-sticky" data-id="2f45e2fa" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:100,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="">
+		<div class="elementor-element elementor-element-7176dc15 e-con-full inner e-flex e-con e-child" data-id="7176dc15" data-element_type="container">
+		<div class="elementor-element elementor-element-6d29f8ef e-con-full e-flex e-con e-child" data-id="6d29f8ef" data-element_type="container">
+				<div class="elementor-element elementor-element-3089dc33 elementor-view-default elementor-widget elementor-widget-icon" data-id="3089dc33" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Camada_2" data-name="Camada 2" viewBox="0 0 141.78 141.84"><defs><style> .cls-1 { fill: url(#Nova_amostra_de_gradiente_1-2); } .cls-1, .cls-2 { fill-rule: evenodd; } .cls-2 { fill: url(#Nova_amostra_de_gradiente_1); } </style><linearGradient id="Nova_amostra_de_gradiente_1" data-name="Nova amostra de gradiente 1" x1="-61.64" y1="-.29" x2="109.19" y2="101.36" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a3a9ed"></stop><stop offset="1" stop-color="#6168ad"></stop></linearGradient><linearGradient id="Nova_amostra_de_gradiente_1-2" data-name="Nova amostra de gradiente 1" x1="-65.26" y1="5.81" x2="105.56" y2="107.45" xlink:href="#Nova_amostra_de_gradiente_1"></linearGradient></defs><g id="Camada_1-2" data-name="Camada 1"><g id="Camada_1-3" data-name="Camada_1"><g id="_2520628523296" data-name=" 2520628523296"><path class="cls-2" d="M19.61,97.17c0-2.27.04-3.38,2.17-5.37,2.61-2.44,11.32-1.57,16.23-1.57,4.05,0,6.94,2.92,6.94,5.43,0,3.89-1.61,7.24-5.73,7.24h-13.88c-3.08,0-5.73-2.65-5.73-5.73h0ZM64.28,77.25H25.65c-8,0-8.1-12.67,0-12.67h38.63c8.7,0,8.71,12.67,0,12.67ZM19.61,46.17c0-3.67,1.35-7.24,5.73-7.24h52.51c5.51,0,7.87,7.44,3.54,11.09-1.19,1-2.68,1.59-4.75,1.59H26.56c-4.05,0-6.94-2.92-6.94-5.43ZM0,31.99v77.86C0,127.25,14.99,141.82,31.37,141.84c7.14,0,14.29-.01,21.44-.01-1.83-7.86-1.4-6.26-.36-14.84.36-2.92.66-5.33,1.05-8.3.75-5.71,1.73-9.88,4.26-14.15,2.61-4.41,4.95-6.56,8.4-10.01,6.23-6.23,33.21-33.89,37.1-36.53,4.59-3.11,7.22-4.16,12.92-5.49,0-6.32.48-14.74-.02-20.81-.95-11.54-5.79-21.09-15.39-26.86-4.01-2.41-9.91-4.84-16.28-4.84H31.99C14.61,0,0,14.61,0,31.99h0Z"></path><path class="cls-1" d="M64.28,135.49c0,3.05,3.04,6.34,6.04,6.34,2.33,0,11.47-1.35,14.27-1.72,11.8-1.56,12.39-3.37,20.66-11.63l30.18-30.17c.89-.88,1.16-1.37,1.96-2.26,6.26-6.96,5.81-18.79-1.21-25.81-6.78-6.78-17.81-7.63-25.86-1.57-1.46,1.1-38.78,38.15-40.25,40.32-1.16,1.72-1.93,2.98-2.66,5.18-.57,1.72-3.12,18.56-3.12,21.32h0Z"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7c254750 elementor-widget elementor-widget-heading" data-id="7c254750" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Conteúdo</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-f00bb49 elementor-widget elementor-widget-text-editor" data-id="f00bb49" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Criação de <b>conteúdo </b>e gestão de redes sociais</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-77bafd4a e-con-full e-flex e-con e-child" data-id="77bafd4a" data-element_type="container">
+				<div class="elementor-element elementor-element-6a80a79f elementor-widget elementor-widget-text-editor" data-id="6a80a79f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Criamos e publicamos o conteúdo da sua marca com consistência e estratégia.&nbsp;</p><p>Do briefing à legenda, nosso time cuida de tudo — sem que você precise se preocupar com nada.</p>								</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-2747c1bd e-con-full blob e-flex e-con e-child" data-id="2747c1bd" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;position&quot;:&quot;absolute&quot;}" style="opacity: 1;">
+				</div>
+		<div class="elementor-element elementor-element-54a21d90 e-con-full fakeblob e-flex e-con e-child" data-id="54a21d90" data-element_type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-2c069fd8 e-con-full card e-flex e-con e-child elementor-sticky" data-id="2c069fd8" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:150,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="">
+		<div class="elementor-element elementor-element-12ca4c10 e-con-full inner e-flex e-con e-child" data-id="12ca4c10" data-element_type="container">
+		<div class="elementor-element elementor-element-722ddb20 e-con-full e-flex e-con e-child" data-id="722ddb20" data-element_type="container">
+				<div class="elementor-element elementor-element-31f8608b elementor-view-default elementor-widget elementor-widget-icon" data-id="31f8608b" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Camada_2" data-name="Camada 2" viewBox="0 0 133.22 87.42"><defs><style> .cls-1 { fill: url(#Nova_amostra_de_gradiente_1); fill-rule: evenodd; } </style><linearGradient id="Nova_amostra_de_gradiente_1" data-name="Nova amostra de gradiente 1" x1="-1.26" y1="15.11" x2="100.38" y2="61.7" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a3a9ed"></stop><stop offset="1" stop-color="#6168ad"></stop></linearGradient></defs><g id="Camada_1-2" data-name="Camada 1"><g id="Camada_1-3" data-name="Camada_1"><path class="cls-1" d="M0,19.77v47.88c0,10.36,9.7,19.77,20.03,19.77h61.67c3.54,0,6.15-1.09,8.7-2.23,4.77-2.14,8.72-6.9,10.4-11.98.95-2.87,1.2-6.29,1.2-9.99.82.22,2.21,1.18,3.04,1.64,1.18.66,1.98,1.18,3.12,1.82,4.76,2.65,11.31,6.74,15.69,9.03,1.25.65,2.21,1.3,3.91,1.3,2.78,0,5.46-2.44,5.46-5.2V15.61c0-2.72-2.4-5.2-5.72-5.2-2.17,0-10.58,5.3-12.86,6.65-2.19,1.3-4.09,2.31-6.28,3.6l-6.36,3.53c0-6.04-.92-12.65-5.13-16.98-4.04-4.16-8.66-7.21-15.16-7.21H20.03C9.71,0,0,9.41,0,19.77h0Z"></path></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-20152500 elementor-widget elementor-widget-heading" data-id="20152500" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Audiovisual</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5492d5d2 elementor-widget elementor-widget-text-editor" data-id="5492d5d2" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Captação e produção <b>audiovisual</b></p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-5a03169f e-con-full e-flex e-con e-child" data-id="5a03169f" data-element_type="container">
+				<div class="elementor-element elementor-element-3623bca3 elementor-widget elementor-widget-text-editor" data-id="3623bca3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Seu conteúdo com qualidade de cinema. Roteirizamos, gravamos, editamos e entregamos vídeos e fotos que posicionam sua marca em outro nível — tudo com equipe in house.</p>								</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-222918d9 e-con-full blob e-flex e-con e-child" data-id="222918d9" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;position&quot;:&quot;absolute&quot;}" style="opacity: 1;">
+				</div>
+		<div class="elementor-element elementor-element-40d56a0f e-con-full fakeblob e-flex e-con e-child" data-id="40d56a0f" data-element_type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1682f5c1 e-con-full card e-flex e-con e-child elementor-sticky" data-id="1682f5c1" data-element_type="container" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;sticky_offset&quot;:200,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" style="">
+		<div class="elementor-element elementor-element-2b974f1e e-con-full inner e-flex e-con e-child" data-id="2b974f1e" data-element_type="container">
+		<div class="elementor-element elementor-element-6666a1b6 e-con-full e-flex e-con e-child" data-id="6666a1b6" data-element_type="container">
+				<div class="elementor-element elementor-element-294fe252 elementor-view-default elementor-widget elementor-widget-icon" data-id="294fe252" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Camada_2" data-name="Camada 2" viewBox="0 0 104.58 104.58"><defs><style> .cls-1 { fill: url(#Nova_amostra_de_gradiente_1-2); } .cls-1, .cls-2, .cls-3 { fill-rule: evenodd; } .cls-2 { fill: url(#Nova_amostra_de_gradiente_1-3); } .cls-3 { fill: url(#Nova_amostra_de_gradiente_1); } </style><linearGradient id="Nova_amostra_de_gradiente_1" data-name="Nova amostra de gradiente 1" x1="5.25" y1="12.43" x2="89.95" y2="54.78" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a3a9ed"></stop><stop offset="1" stop-color="#6168ad"></stop></linearGradient><linearGradient id="Nova_amostra_de_gradiente_1-2" data-name="Nova amostra de gradiente 1" x1="-8.89" y1="40.71" x2="75.81" y2="83.06" xlink:href="#Nova_amostra_de_gradiente_1"></linearGradient><linearGradient id="Nova_amostra_de_gradiente_1-3" data-name="Nova amostra de gradiente 1" x1="-21.96" y1="66.85" x2="62.74" y2="109.2" xlink:href="#Nova_amostra_de_gradiente_1"></linearGradient></defs><g id="Camada_1-2" data-name="Camada 1"><g id="Camada_1-3" data-name="Camada_1"><g id="_2520637421040" data-name=" 2520637421040"><path class="cls-3" d="M65.36,2.86v98.86c0,1.28,1.58,2.86,2.86,2.86h33.5c1.28,0,2.86-1.58,2.86-2.86V2.86c0-1.28-1.58-2.86-2.86-2.86h-33.5c-1.28,0-2.86,1.58-2.86,2.86Z"></path><path class="cls-1" d="M32.68,35.54v66.18c0,1.28,1.58,2.86,2.86,2.86h23.29V32.68h-23.29c-1.28,0-2.86,1.58-2.86,2.86h0Z"></path><path class="cls-2" d="M0,68.22v33.5c0,1.28,1.58,2.86,2.86,2.86h23.29v-39.22H2.86C1.58,65.36,0,66.95,0,68.22h0Z"></path></g></g></g></svg>			</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3bc44e41 elementor-widget elementor-widget-heading" data-id="3bc44e41" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Performance</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2df878de elementor-widget elementor-widget-text-editor" data-id="2df878de" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Gestão de <b>anúncios </b>online em Meta e Google</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-10f00e7b e-con-full e-flex e-con e-child" data-id="10f00e7b" data-element_type="container">
+				<div class="elementor-element elementor-element-458dc7ef elementor-widget elementor-widget-text-editor" data-id="458dc7ef" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Gerenciamos a sua compra de mídia. Criamos, validamos e otimizamos campanhas em Meta e Google com foco total em performance — acompanhado de relatórios claros e objetivos.</p>								</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4a369693 e-con-full blob e-flex e-con e-child" data-id="4a369693" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;position&quot;:&quot;absolute&quot;}" style="opacity: 1;">
+				</div>
+		<div class="elementor-element elementor-element-619634c9 e-con-full fakeblob e-flex e-con e-child" data-id="619634c9" data-element_type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-518e9220 e-con-full brilho1 e-flex e-con e-child animated fadeInUp" data-id="518e9220" data-element_type="container" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;}" style="--before-opacity: 1; --after-opacity: 0;">
+				<div class="elementor-element elementor-element-31670074 brilho2 elementor-widget elementor-widget-button" data-id="31670074" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://dondigital.typeform.com/to/IH6Ck2i8?utm_source=acesso_direto&amp;utm_medium=acesso_direto&amp;utm_campaign=acesso_direto&amp;utm_term=acesso_direto&amp;utm_content=acesso_direto" data-utm-processed="true">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Quero mais informações</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+					</div>
+				</div>
