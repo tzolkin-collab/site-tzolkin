@@ -14,7 +14,7 @@ export function Marquee({ items, speed = 1 }: MarqueeProps) {
   ])
 
   return (
-    <div className="w-full overflow-hidden bg-foreground py-4" ref={emblaRef}>
+    <div className="w-full overflow-hidden bg-foreground py-4 transition-colors duration-500" ref={emblaRef}>
       <div className="flex touch-pan-y">
         {items.map((item, index) => (
           <div 

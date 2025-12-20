@@ -21,7 +21,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-neutral-100 dark:bg-neutral-950 text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300">
+    <footer className="bg-white dark:bg-background text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       

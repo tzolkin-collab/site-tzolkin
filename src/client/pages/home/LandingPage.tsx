@@ -69,7 +69,7 @@ export function LandingPage() {
             <span className="text-brand">SUCESSO</span><br/>
             HUB<span className="text-brand">DI</span>
             </div>
-            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
+            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
               Se sua <span className="text-brand font-bold">marca</span> não anda, não é por falta de esforço.
               É por falta de <span className="text-brand font-bold">direção</span>.
               Hoje ou você <span className="text-brand font-bold">tem números</span> e não tem <span className="text-brand font-bold">venda</span>, ou não tem nem números. 
@@ -77,7 +77,7 @@ export function LandingPage() {
             </p>
             
             {/* Center Card */}
-             <div className="flex w-full bg-black dark:bg-white md:border-b-[5px] border-brand py-[45.80px] flex flex-col items-center justify-center group overflow-hidden mx-auto lg:mx-0 transition-colors duration-500 animate-[fadeIn_1s_var(--ease-sophisticated)_0.1s_forwards] opacity-0">
+             <div className="flex w-full bg-black dark:bg-white md:border-b-[5px] border-brand py-[45.80px] flex flex-col items-center justify-center group overflow-hidden transition-colors duration-500 mx-auto lg:mx-0 animate-[fadeIn_1s_var(--ease-sophisticated)_0.1s_forwards] opacity-0">
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="relative z-10 text-center space-y-6 px-6 md:px-12">
@@ -90,7 +90,7 @@ export function LandingPage() {
                   <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-4 text-black">
                     <ArrowRight className="w-8 h-8 -rotate-45" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white dark:text-black uppercase tracking-tight transition-colors duration-500">
+                  <h3 className="text-2xl font-bold text-white dark:text-black uppercase transition-colors duration-100">
                     Sem enrolação
                   </h3>
                   <p className="text-neutral-400 dark:text-neutral-600 text-sm leading-relaxed transition-colors duration-500">
