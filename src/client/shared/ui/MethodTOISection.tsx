@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Button } from '@/client/shared/ui/Button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export function MethodTOISection() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -18,14 +18,14 @@ export function MethodTOISection() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
