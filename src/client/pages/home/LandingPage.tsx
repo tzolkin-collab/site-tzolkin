@@ -1,27 +1,72 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Button } from '@/client/shared/ui/Button';
 import { Marquee } from '@/client/shared/ui/Marquee';
+import { LogoMarquee } from '@/client/shared/ui/LogoMarquee';
 import { Header } from '@/client/shared/ui/Header';
-import { Footer } from '@/client/shared/ui/Footer';
-import { PortfolioCarousel } from '@/client/shared/ui/PortfolioCarousel';
-import { MajorPartnerships } from '@/client/shared/ui/MajorPartnerships';
-import { ServicesSection } from '@/client/shared/ui/ServicesSection';
 import { ArrowRight, MoveRight, Quote } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { projects } from '@/client/shared/data/projects';
+import { brands } from '@/client/shared/data/brands';
+
+// Dynamic Imports for performance optimization
+const PortfolioCarousel = dynamic(() => import('@/client/shared/ui/PortfolioCarousel').then(mod => mod.PortfolioCarousel), {
+  loading: () => <div className="h-[400px] w-full bg-background/5 animate-pulse" />
+});
+
+const MajorPartnerships = dynamic(() => import('@/client/shared/ui/MajorPartnerships').then(mod => mod.MajorPartnerships), {
+  loading: () => <div className="h-[600px] w-full bg-background/5 animate-pulse" />
+});
+
+const MethodTOISection = dynamic(() => import('@/client/shared/ui/MethodTOISection').then(mod => mod.MethodTOISection), {
+  loading: () => <div className="h-[400px] w-full bg-background/5 animate-pulse" />
+});
+
+const TrafficProblemSection = dynamic(() => import('@/client/shared/ui/TrafficProblemSection').then(mod => mod.TrafficProblemSection), {
+  loading: () => <div className="h-[400px] w-full bg-background/5 animate-pulse" />
+});
+
+const ServicesSection = dynamic(() => import('@/client/shared/ui/ServicesSection').then(mod => mod.ServicesSection), {
+  loading: () => <div className="h-[800px] w-full bg-background/5 animate-pulse" />
+});
+
+const BrandsSection = dynamic(() => import('@/client/shared/ui/BrandsSection').then(mod => mod.BrandsSection), {
+  loading: () => <div className="h-[600px] w-full bg-background/5 animate-pulse" />
+});
+
+const FounderSection = dynamic(() => import('@/client/shared/ui/FounderSection').then(mod => mod.FounderSection), {
+  loading: () => <div className="h-[600px] w-full bg-background/5 animate-pulse" />
+});
+
+const ContactFormSection = dynamic(() => import('@/client/shared/ui/ContactFormSection').then(mod => mod.ContactFormSection), {
+  loading: () => <div className="h-[800px] w-full bg-background/5 animate-pulse" />
+});
+
+const WhoIsItForSection = dynamic(() => import('@/client/shared/ui/WhoIsItForSection').then(mod => mod.WhoIsItForSection), {
+  loading: () => <div className="h-[600px] w-full bg-background/5 animate-pulse" />
+});
+
+const Footer = dynamic(() => import('@/client/shared/ui/Footer').then(mod => mod.Footer));
 
 export function LandingPage() {
-  const marqueeItems = [
-    "Design", "Strategy", "Marketing", "Branding",
-    "Design", "Strategy", "Marketing", "Branding"
-  ];
+  const marqueeSet = new Set(["Design", "Strategy", "Marketing", "Branding"]);
+  const marqueeItems = [...marqueeSet, ...marqueeSet];
 
-  const regularProjects = projects.filter(p => p.category !== 'partnership');
-  const partnershipProjects = projects.filter(p => p.category === 'partnership');
+  // Otimização: Uso de Map para agrupamento O(N) ao invés de múltiplos filters O(N*M)
+  const projectGroups = new Map<string, typeof projects>();
+  
+  projects.forEach(p => {
+    const category = p.category || 'case';
+    if (!projectGroups.has(category)) {
+      projectGroups.set(category, []);
+    }
+    projectGroups.get(category)!.push(p);
+  });
+
+  const regularProjects = projectGroups.get('case') || [];
+  const partnershipProjects = projectGroups.get('partnership') || [];
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
@@ -70,7 +115,7 @@ export function LandingPage() {
             <span className="text-brand">SUCESSO</span><br/>
             HUB<span className="text-brand">DI</span>
             </div>
-            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white font-montserrat dark:bg-background md:bg-black md:py-4 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
+            <p className="max-w-md px-4 md:pr-2 pr-8 bg-white font-montserrat dark:bg-background md:bg-black md:pb-6 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
               <Quote className="w-8 h-8 text-black dark:text-white mb-2 fill-white darK:fill-black" />
               Se sua <span className="text-brand font-bold">marca</span> não anda, não é por falta de esforço.
               É por falta de <span className="text-brand font-bold">direção</span>.
@@ -126,6 +171,27 @@ export function LandingPage() {
 
       {/* Services Section */}
       <ServicesSection />
+
+      {/* 5th Section - Method TOI */}
+      <MethodTOISection />
+
+      {/* 6th Section - Traffic Problem */}
+      <TrafficProblemSection />
+
+      {/* 7th Section - Brands */}
+      <BrandsSection />
+
+      {/* 8th Section - Founder */}
+      <FounderSection />
+
+      {/* Logo Marquee Separator */}
+      <LogoMarquee items={brands || []} speed={0.8} />
+
+      {/* 9th Section - Form */}
+      <ContactFormSection />
+
+      {/* 10th Section - Who is it for */}
+      <WhoIsItForSection />
 
       {/* Footer */}
       <Footer />

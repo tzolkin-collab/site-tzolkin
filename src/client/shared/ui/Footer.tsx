@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Instagram, Linkedin, Twitter, Mail } from 'lucide-react';
+import { ArrowUpRight, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,14 +14,14 @@ export function Footer() {
   ];
 
   const quickLinks = [
-    { label: 'Work', href: '#' },
-    { label: 'About', href: '#' },
-    { label: 'Services', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Work', href: '/portfolio' },
+    { label: 'About', href: '/#about' },
+    { label: 'Services', href: '/#services' },
+    { label: 'Contact', href: '/#contact-form' },
   ];
 
   return (
-    <footer className="bg-white dark:bg-background text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300">
+    <footer id="contact" className="bg-white dark:bg-background text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
       

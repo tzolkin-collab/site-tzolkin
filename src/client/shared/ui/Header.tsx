@@ -13,7 +13,7 @@ export function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,16 +27,16 @@ export function Header() {
   };
 
   const menuItems = [
-    { label: 'Work', href: '#' },
-    { label: 'About', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Work', href: '/portfolio' },
+    { label: 'About', href: '/#about' },
+    { label: 'Contact', href: '/#contact-form' },
   ];
 
   return (
     <>
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-background/80 backdrop-blur-md py-4' : 'bg-transparent py-6'
+          scrolled ? 'bg-background/100 backdrop-blur-md py-4' : 'bg-transparent py-6'
         }`}
       >
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto flex justify-between items-center">

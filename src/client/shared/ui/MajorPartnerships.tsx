@@ -68,8 +68,9 @@ Unimos posicionamento e conteúdo para transformar negócios em movimentos autê
                   <Image 
                     src={project.logo} 
                     alt={`${project.name} Project`}
-                    fill 
-                    className={`object-contain ${project.bright ? 'brightness-0' : ''} ${project.invert ? 'invert dark:invert-0' : ''}`}
+                    fill
+                    sizes="(max-width: 1000px) 100vw, 50vw"
+                    className={`object-contain brightness-0 invert dark:invert-0`}
                   />
                 </div>
               </div>
