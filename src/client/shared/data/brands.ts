@@ -5,7 +5,7 @@ export const brands = [
   { name: 'Hotel Metrópole', logo: '/Logo Hotel Metrópole.png', bright: true, invert: true },
   { name: 'Mega', logo: '/Logo Mega.png', bright: false, invert: false },
   { name: 'Kid Stok', logo: '/Logo KidStok.png', bright: false, invert: false },
-  { name: 'Mr. Fit', logo: '/Logo Mr. Fit.png', bright: true, invert: true },
+  { name: 'Mr. Fit', logo: '/Logo Mr. Fit.png', bright: false, invert: false },
   { name: 'Rei da Fruta', logo: '/Logo Rei Da Fruta.png', bright: false, invert: false },
   { name: 'Embale+', logo: '/Logo Embale+.png', bright: false, invert: false },
   { name: 'Haylander', logo: '/Logo Haylander.png', bright: true, invert: false },

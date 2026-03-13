@@ -3,11 +3,11 @@ import React from 'react'
 import Image from 'next/image'
 
 interface LogoMarqueeProps {
-  items: { 
-    name: string; 
-    logo: string; 
-    bright?: boolean; 
-    invert?: boolean; 
+  items: {
+    name: string;
+    logo: string;
+    bright?: boolean;
+    invert?: boolean;
   }[]
   speed?: number
 }
@@ -18,20 +18,20 @@ export function LogoMarquee({ items, speed = 1 }: LogoMarqueeProps) {
   const duration = 30 / speed;
 
   return (
-    <div className="w-full overflow-hidden bg-black py-8 border-y border-white/10 relative z-20">
-      <div 
+    <div className="w-full overflow-hidden bg-background py-8 border-y border-white/10 relative z-20">
+      <div
         className="flex animate-marquee touch-pan-y items-center"
         style={{ '--marquee-duration': `${duration}s` } as React.CSSProperties}
       >
         {/* First Set */}
         {items.map((item, index) => (
-          <div 
-            key={`orig-${index}`} 
+          <div
+            key={`orig-${index}`}
             className={`
-              flex-[0_0_auto] min-w-0 mr-12 md:mr-24 relative h-16 w-32 md:h-20 md:w-48
+              flex-[0_0_auto] min-w-0 mr-12 md:mr-24 relative h-16 w-32 md:h-30 md:w-48
               opacity-50 transition-all duration-300 hover:opacity-100
               grayscale hover:grayscale-0
-              'brightness-0 hover:brightness-100' 
+              'hover:brightness-100' 
               'invert hover:invert-0'
             `}
           >
@@ -40,15 +40,15 @@ export function LogoMarquee({ items, speed = 1 }: LogoMarqueeProps) {
               alt={item.name}
               fill
               className="object-contain"
-              sizes="128px"
+              sizes="154px"
             />
           </div>
         ))}
-        
+
         {/* Duplicate Set for Infinite Loop */}
         {items.map((item, index) => (
-          <div 
-            key={`dup-${index}`} 
+          <div
+            key={`dup-${index}`}
             className={`
               flex-[0_0_auto] min-w-0 mr-12 md:mr-24 relative h-16 w-32 md:h-20 md:w-48
               opacity-50 transition-all duration-300 hover:opacity-100

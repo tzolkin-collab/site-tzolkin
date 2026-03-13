@@ -27,30 +27,30 @@ export function Header() {
   };
 
   const menuItems = [
-    { label: 'Work', href: '/portfolio' },
+    { label: 'Work', href: '/#services' },
     { label: 'About', href: '/#about' },
-    { label: 'Contact', href: '/#contact-form' },
+    { label: 'Products', href: '/#products' },
+    { label: 'Contact', href: '/forms' },
   ];
 
   return (
     <>
-      <header 
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-background/100 backdrop-blur-md py-4' : 'bg-transparent py-6'
-        }`}
+      <header
+        className={`fixed top-10 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/100 backdrop-blur-md py-4' : 'bg-transparent py-6'
+          }`}
       >
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center group z-50 relative">
-             <div className="text-xl font-bold tracking-widest text-[var(--color-brand)] uppercase">HUB</div>
-             <span className="text-xl font-bold tracking-widest uppercase text-foreground">Di</span>
+            <div className="text-xl font-bold tracking-widest text-[var(--color-brand)] uppercase">VOL</div>
+            <span className="text-xl font-bold tracking-widest uppercase text-foreground">TICS</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
-              <Link 
-                key={item.label} 
+              <Link
+                key={item.label}
                 href={item.href}
                 className="text-sm font-medium tracking-wide text-foreground hover:opacity-70 transition-opacity uppercase"
               >
@@ -65,7 +65,7 @@ export function Header() {
           {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center gap-4 z-50 relative">
             <ModeToggle />
-            <button 
+            <button
               onClick={toggleMenu}
               className="text-foreground p-2 -mr-2 hover:bg-foreground/5 rounded-full transition-colors"
               aria-label="Toggle menu"
@@ -77,30 +77,28 @@ export function Header() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-background z-40 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden flex flex-col justify-center items-center ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+      <div
+        className={`fixed inset-0 bg-background z-40 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden flex flex-col justify-center items-center ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <nav className="flex flex-col items-center gap-8">
           {menuItems.map((item, index) => (
-            <Link 
-              key={item.label} 
+            <Link
+              key={item.label}
               href={item.href}
               onClick={toggleMenu}
-              className={`text-5xl font-bold tracking-tight text-foreground uppercase hover:text-muted-foreground transition-all duration-500 ${
-                 isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
+              className={`text-5xl font-bold tracking-tight text-foreground uppercase hover:text-muted-foreground transition-all duration-500 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
               style={{ transitionDelay: `${index * 100 + 200}ms` }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
-        
+
         {/* Background decorative element */}
         <div className="absolute underline bottom-10 left-0 w-full text-center text-muted-foreground/20 text-sm tracking-[0.5em] uppercase">
-          @2023 HUBDi.
+          @2023 VOLTICS.
         </div>
       </div>
     </>
