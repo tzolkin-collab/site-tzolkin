@@ -93,7 +93,7 @@ export function Footer() {
 
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-12 md:pl-12">
+        <div className="grid grid-cols-1 gap-12 md:pl-12 p-20">
           <Link href="/" className="inline-block group mx-auto">
             <Image
               src="/logoVoltics.jpg"
