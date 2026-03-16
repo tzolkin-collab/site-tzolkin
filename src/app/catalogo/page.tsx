@@ -115,7 +115,7 @@ export default function CatalogoPage() {
                 <cap.icon className="w-6 h-6" style={{ color: cap.color }} />
               </div>
               <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">{cap.title}</h3>
-              <p className="text-foreground/60 leading-relaxed">{cap.description}</p>
+              <p className="text-foreground/61 leading-relaxed">{cap.description}</p>
             </motion.div>
           ))}
         </div>
