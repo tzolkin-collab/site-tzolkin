@@ -66,7 +66,7 @@ export function PricingSection() {
       </div>
 
       {/* Carousel */}
-      <div className="w-full relative z-10 pl-6 md:pl-12 pb-12 overflow-hidden" ref={emblaRef}>
+      <div className="w-full relative z-10 pl-6 md:pl-12 pb-12 py-2 overflow-hidden" ref={emblaRef}>
         <div className="flex gap-6 pb-8 pt-4 cursor-grab active:cursor-grabbing touch-pan-y">
           {pricingData.map((plan: PricingCardProps, index: number) => (
             <div key={plan.title}>

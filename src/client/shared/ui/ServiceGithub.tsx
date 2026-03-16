@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { GitCommit, Github, Clock } from 'lucide-react';
+import GlareHover from '@/client/shared/ui/GlareHover';
 
 interface Integration {
   repo: string;
@@ -19,7 +20,13 @@ export function ServiceGithub({ integrations }: ServiceGithubProps) {
   return (
     <div className="space-y-4">
       {integrations.map((item, idx) => (
-        <div key={idx} className="group flex flex-col p-6 rounded-2xl border border-border/50 bg-black dark:bg-white hover:bg-white/10 dark:hover:bg-neutral-800 transition-all duration-300">
+        <GlareHover 
+           key={idx} 
+           className="group flex flex-col p-6 rounded-2xl rtl hover:bg-white/10 dark:hover:bg-neutral-800 transition-all duration-300" 
+           background="transparent" 
+           borderColor="rgba(255,255,255,0.1)" 
+           glareColor="var(--brand)"
+        >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <Github className="w-5 h-5 text-background opacity-90" />
@@ -34,7 +41,7 @@ export function ServiceGithub({ integrations }: ServiceGithubProps) {
             {item.description}
           </p>
 
-          <div className="flex items-center justify-between pt-4 border-t border-border/30">
+          <div className="flex items-center justify-between pt-4 border-t border-border/30 relative z-20">
             <div className="flex items-center gap-2 text-xs text-background/70">
               <Clock className="w-3.5 h-3.5" />
               <span>{item.lastCommit}</span>
@@ -44,7 +51,7 @@ export function ServiceGithub({ integrations }: ServiceGithubProps) {
               <span>{item.hash}</span>
             </div>
           </div>
-        </div>
+        </GlareHover>
       ))}
     </div>
   );

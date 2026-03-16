@@ -5,11 +5,13 @@ export interface ServiceData {
   heroMetrics: { label: string; value: string; trend?: string; trendUp?: boolean }[];
   chartData: { name: string; value1: number; value2?: number }[];
   chartConfig: {
-    type: 'area' | 'bar' | 'line';
+    type: 'area' | 'bar' | 'line' | 'funnel';
     dataKey1: string;
     label1: string;
     dataKey2?: string;
     label2?: string;
+    dataKey3?: string;
+    label3?: string;
   };
   mermaidString: string;
   githubIntegrations: {
@@ -23,15 +25,17 @@ export interface ServiceData {
     headline: string;
     content: string[];
     copyAction?: string;
-    chart?: {
-      data: any[];
-      config: {
-        type: 'area' | 'bar' | 'line' | 'pie';
-        dataKey1: string;
-        label1: string;
-        dataKey2?: string;
-        label2?: string;
-      };
+      chart?: {
+        data: any[];
+        config: {
+          type: 'area' | 'bar' | 'line' | 'pie' | 'funnel';
+          dataKey1: string;
+          label1: string;
+          dataKey2?: string;
+          label2?: string;
+          dataKey3?: string;
+          label3?: string;
+        };
     };
   }[];
   marqueeItems?: string[];
@@ -48,18 +52,16 @@ export const servicesData: Record<string, ServiceData> = {
       { label: 'Leads/Mês', value: '+220%', trend: 'HubSpot', trendUp: true },
     ],
     chartData: [
-      { name: 'SaaS', value1: 3.0, value2: 9.5 },
-      { name: 'E-comm', value1: 2.4, value2: 12.9 },
-      { name: 'Saúde', value1: 2.8, value2: 7.4 },
-      { name: 'Finanças', value1: 3.1, value2: 11.2 },
-      { name: 'Educação', value1: 2.6, value2: 13.8 },
+      { name: '5s+ (Agência)', value1: 80 },
+      { name: '4s', value1: 70 },
+      { name: '3s (Média)', value1: 60 },
+      { name: '2s', value1: 50 },
+      { name: '0.8s (Voltics)', value1: 40 },
     ],
     chartConfig: {
-      type: 'bar',
+      type: 'funnel',
       dataKey1: 'value1',
-      label1: 'Página Genérica (%)',
-      dataKey2: 'value2',
-      label2: 'Landing Page Otimizada (%)',
+      label1: 'CPA (R$)',
     },
     mermaidString: `
       graph TD
@@ -84,16 +86,29 @@ export const servicesData: Record<string, ServiceData> = {
         copyAction: 'Se você gasta R$10.000/mês em tráfego e sua página converte 2%, você tem 200 leads. Com 9.7%, seriam 970. Com o mesmo investimento. Sem aumentar um centavo em ads.',
         chart: {
           data: [
-            { name: '< 1s', value1: 12.8 },
-            { name: '1-2s', value1: 9.7 },
-            { name: '2-3s', value1: 6.1 },
-            { name: '3-5s', value1: 3.2 },
-            { name: '5s+', value1: 1.4 },
+            { name: '0.8s', value1: 4, value3: 96 },
+            { name: '',     value1: 8, value3: 92 },
+            { name: '1.5s', value1: 15, value3: 85 },
+            { name: '',     value1: 22, value3: 78 },
+            { name: '2.5s', value1: 34, value3: 66 },
+            { name: '',     value1: 45, value3: 55 },
+            { name: '3.5s', value1: 54, value3: 46 },
+            { name: '',     value1: 62, value3: 38 },
+            { name: '4.5s', value1: 71, value3: 29 },
+            { name: '',     value1: 78, value3: 22 },
+            { name: '5.5s', value1: 85, value3: 15 },
+            { name: '',     value1: 90, value3: 10 },
+            { name: '6.5s', value1: 94, value3: 6 },
+            { name: '',     value1: 96, value3: 4 },
+            { name: '8.0s', value1: 98, value3: 2 },
+            { name: '10s+', value1: 99, value3: 1 },
           ],
           config: {
-            type: 'bar',
-            dataKey1: 'value1',
-            label1: 'Taxa de Conversão por Velocidade de Carregamento (%)',
+            type: 'area',
+            dataKey1: 'value3',
+            label1: 'Usuários Retidos (%)',
+            dataKey3: 'value1',
+            label3: 'Taxa de Rejeição / Abandono (%)',
           }
         }
       },
@@ -106,17 +121,16 @@ export const servicesData: Record<string, ServiceData> = {
         copyAction: 'Enquanto agências entregam templates de WordPress que carregam em 5 segundos, nossas páginas abrem em 0.8s — isso reduz seu CPA em até 50% porque o Google recompensa velocidade no Quality Score.',
         chart: {
           data: [
-            { name: 'Mês 1', value1: 85, value2: 85 },
-            { name: 'Mês 2', value1: 82, value2: 62 },
-            { name: 'Mês 3', value1: 78, value2: 48 },
-            { name: 'Mês 6', value1: 75, value2: 38 },
+            { name: '5s (Agência WordPress)', value1: 80, description: 'CPA máximo. Cada segundo de lentidão infla 32% no bounce rate e você paga caro por acessos perdidos.' },
+            { name: '4s', value1: 70, description: 'Sua parcela de conversão começa a melhorar, mas boa parte do orçamento ainda evapora.' },
+            { name: '3s', value1: 60, description: 'Tempo médio do mercado. O custo de aquisição estagna e limita a sua escala em leilões mais caros.' },
+            { name: '2s', value1: 50, description: 'O carregamento entra em uma boa zona e o Google Ads já recompensa com Quality Score melhor.' },
+            { name: '0.8s (Voltics SSG)', value1: 40, description: 'Velocidade instantânea! CPA matematicamente cortado pela metade devido ao máximo de conversão na landing page.' },
           ],
           config: {
-            type: 'line',
+            type: 'funnel',
             dataKey1: 'value1',
-            label1: 'CPA Página Genérica (R$)',
-            dataKey2: 'value2',
-            label2: 'CPA Landing Page Voltics (R$)',
+            label1: 'Custo por Aquisição - CPA (R$)',
           }
         }
       },

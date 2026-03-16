@@ -1,10 +1,14 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { servicesData } from '@/client/shared/data/servicesData';
-import { ServiceChart } from '@/client/shared/ui/ServiceChart';
 import { ServiceGithub } from '@/client/shared/ui/ServiceGithub';
 import { MermaidDiagram } from '@/client/shared/ui/MermaidDiagram';
+import { Antigravity } from '@/client/shared/ui/Antigravity';
+import { PrismBackground } from '@/client/shared/ui/PrismBackground';
+import CardSwap, { Card } from '@/client/shared/ui/CardSwap';
 import { Marquee } from '@/client/shared/ui/Marquee';
+import { SpotlightCard } from '@/client/shared/ui/SpotlightCard';
+import { ServiceChart } from '@/client/shared/ui/ServiceChart';
 import Link from 'next/link';
 import { ArrowRight, ChevronLeft, BarChart3, GitBranch, Share2 } from 'lucide-react';
 
@@ -29,8 +33,11 @@ export default async function ServicePage(props: Params) {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative pt-15 pb-20 overflow-hidden border-b border-border/50">
-        <div className="rounded-full blur-[120px] pointer-events-none" />
+      <section className="relative pt-15 pb-20 overflow-hidden border-b border-border/50 min-h-[500px]">
+        {/* Animated Backgrounds */}
+        <PrismBackground className="opacity-100" colors={['var(--brand)', 'var(--brand)', 'var(--brand)']} />
+        
+     
 
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <Link href="/catalogo" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-foreground transition-colors mb-6">
@@ -38,21 +45,31 @@ export default async function ServicePage(props: Params) {
             Voltar para Personalizado
           </Link>
 
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-foreground mb-6 text-xs font-bold tracking-widest uppercase text-background">
-              {service.subtitle}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-2xl">
+              <div className="inline-flex  items-center gap-2 px-3 py-1 rounded-full border border-border bg-foreground mb-6 text-xs font-bold tracking-widest uppercase text-background">
+                {service.subtitle}
+              </div>
+              <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground mb-6 leading-tight">
+                {service.title}
+              </h1>
+              <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                {service.description}
+              </p>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground mb-6 leading-tight">
-              {service.title}
-            </h1>
-            <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-2xl">
-              {service.description}
-            </p>
+
+            <div className="relative w-full h-[400px] hidden lg:block">
+              <CardSwap>
+                <Card className="bg-brand/20 backdrop-blur-md border-brand/40" />
+                <Card className="bg-brand/40 backdrop-blur-md border-brand/50" />
+                <Card className="bg-brand border-brand" />
+              </CardSwap>
+            </div>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 group/spotlight">
             {service.heroMetrics.map((metric, idx) => (
-              <div key={idx} className="p-6 md:p-8 rounded-3xl border border-border/50 bg-white/5 dark:bg-neutral-900/50 backdrop-blur-sm">
+              <SpotlightCard key={idx} className="p-6 md:p-8 rounded-3xl border border-border/50 bg-white/5 dark:bg-neutral-900/50 backdrop-blur-sm" spotlightColor="rgba(64, 187, 33, 0.15)">
                 <p className="text-sm font-bold tracking-widest uppercase text-foreground mb-2">{metric.label}</p>
                 <div className="flex items-end gap-3">
                   <span className="text-3xl md:text-4xl font-black text-foreground">{metric.value}</span>
@@ -62,7 +79,7 @@ export default async function ServicePage(props: Params) {
                     </span>
                   )}
                 </div>
-              </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>
@@ -138,28 +155,39 @@ export default async function ServicePage(props: Params) {
         // Sessão final (dados de mercado) → grid de cards em bg invertido
         if (isLastSection && !hasChart) {
           return (
-            <section key={idx} className="py-28 bg-foreground text-background relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand via-brand/50 to-transparent" />
-              <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[140px] pointer-events-none" />
+            <section key={idx} className="py-28  text-foreground relative overflow-hidden">
+              <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
+                 <Antigravity color="var(--background)" count={1700} />
+              </div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand via-brand/50 to-transparent z-10" />
+              <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[140px] pointer-events-none z-10" />
               <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-16">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 mb-8">
-                    <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-                    <span className="text-xs font-bold tracking-widest uppercase text-background/80">Dados Reais de Mercado</span>
-                  </div>
-                  <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">{section.headline}</h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                  {section.content.map((item, iIdx) => (
-                    <div key={iIdx} className="group p-8 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 backdrop-blur-sm">
-                      <div className="w-8 h-[3px] bg-brand mb-6 group-hover:w-12 transition-all duration-300" />
-                      <p className="text-lg text-background/85 leading-relaxed">{item}</p>
+                  <div className="relative inline-block mb-8">
+                    <div className="absolute inset-0 bg-background/60 blur-[40px] rounded-full" />
+                    <div className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-background/40 backdrop-blur-md">
+                      <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
+                      <span className="text-xs font-bold tracking-widest uppercase text-foreground/80">Dados Reais de Mercado</span>
                     </div>
+                  </div>
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-background/60 blur-[100px] rounded-full" />
+                    <h2 className="relative z-10 text-3xl md:text-5xl backdrop-blur-md bg-background/40 border border-white/5 rounded-full p-2 font-black tracking-tight leading-tight">
+                      {section.headline}
+                    </h2>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto group/spotlight">
+                  {section.content.map((item, iIdx) => (
+                    <SpotlightCard key={iIdx} className="group p-8 rounded-2xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 backdrop-blur-sm" spotlightColor="rgba(64, 187, 33, 0.15)">
+                      <div className="w-8 h-[3px] bg-brand mb-6 group-hover:w-12 transition-all duration-300" />
+                      <p className="text-lg text-foreground font-medium leading-relaxed">{item}</p>
+                    </SpotlightCard>
                   ))}
                 </div>
                 <div className="mt-16 text-center">
                   <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                    <button className="h-14 px-10 rounded-full bg-brand text-black hover:bg-white text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                    <button className="h-14 px-10 rounded-full bg-black text-white hover:bg-[#171717] text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
                       Quero Esses Resultados
                       <ArrowRight className="w-4 h-4" />
                     </button>
@@ -192,7 +220,7 @@ export default async function ServicePage(props: Params) {
                   )}
                   <div className="mt-10">
                     <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                      <button className="h-14 px-10 rounded-full bg-foreground text-background hover:bg-brand hover:text-black text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                      <button className="h-14 px-10 rounded-full bg-foreground text-foreground hover:bg-brand hover:text-black text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
                         Falar Com Especialista
                         <ArrowRight className="w-4 h-4" />
                       </button>
@@ -233,7 +261,7 @@ export default async function ServicePage(props: Params) {
                     )}
                     <div className="mt-10">
                       <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                        <button className="h-12 px-8 rounded-full bg-brand text-black hover:bg-foreground hover:text-background text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                        <button className="h-12 px-8 rounded-full bg-brand text-black hover:bg-foreground hover:text-foreground text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
                           Iniciar Projeto
                           <ArrowRight className="w-4 h-4" />
                         </button>
@@ -270,8 +298,8 @@ export default async function ServicePage(props: Params) {
         <section className="py-20 bg-brand relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.05),transparent_70%)]" />
           <div className="container mx-auto px-6 md:px-12 relative z-10 text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-black tracking-tight mb-6 leading-tight">Pronto para escalar?</h2>
-            <p className="text-lg text-black/70 max-w-2xl mx-auto mb-10">Sua empresa merece uma infraestrutura digital que multiplica lucros e blinda o reconhecimento da sua marca.</p>
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight">Pronto para escalar?</h2>
+            <p className="text-lg text-white/90 font-medium max-w-2xl mx-auto mb-10">Sua empresa merece uma infraestrutura digital que multiplica lucros e blinda o reconhecimento da sua marca.</p>
             <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
               <button className="h-16 px-12 rounded-full bg-black text-white hover:bg-neutral-900 text-lg font-bold uppercase tracking-wider transition-all inline-flex items-center gap-3">
                 Quero Escalar Meu Faturamento
@@ -288,20 +316,34 @@ export default async function ServicePage(props: Params) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             <div className="col-span-1 lg:col-span-5 flex flex-col justify-center">
               <div className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center mb-8 border border-white/10">
-                <GitBranch className="w-6 h-6 text-background" />
+                <GitBranch className="w-6 h-6 text-foreground" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-background tracking-tight mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight mb-6 leading-tight">
                 Engenharia de ponta, repositórios nativos.
               </h2>
-              <p className="text-lg text-background/70 mb-12 leading-relaxed">
+              <p className="text-lg text-foreground/70 mb-12 leading-relaxed">
                 Entregamos controle absoluto. Nossos projetos são modulares e versionados com os mais altos padrões de CI/CD para seu time de dev herdar a operação com maestria.
               </p>
 
               <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                <button className="w-full md:w-auto h-14 px-8 rounded-full bg-brand text-black hover:bg-white text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-3">
-                  Quero Implementar
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="relative inline-flex group cursor-pointer">
+                  {/* Background Blur Glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-brand/50 to-brand/50 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
+                  
+                  {/* Border Container */}
+                  <div className="relative rounded-full p-[2px] overflow-hidden flex items-center justify-center shadow-2xl">
+                    <div
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] aspect-square animate-[spin_4s_linear_infinite]"
+                      style={{
+                        backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, var(--brand) 160deg, transparent 180deg 320deg, var(--brand) 340deg, transparent 360deg)`,
+                      }}
+                    />
+                    <button className="relative z-10 h-14 px-10 rounded-full bg-black text-white hover:bg-black text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                      Quero Implementar
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
               </Link>
             </div>
 

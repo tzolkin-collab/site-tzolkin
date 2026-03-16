@@ -1,44 +1,51 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { ArrowUpRight, Instagram, Linkedin, Twitter } from 'lucide-react';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
+import { ArrowUpRight, Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { label: 'Instagram', href: '#', icon: Instagram },
-    { label: 'LinkedIn', href: '#', icon: Linkedin },
-    { label: 'Twitter', href: '#', icon: Twitter },
+    { label: "Instagram", href: "#", icon: Instagram },
+    { label: "LinkedIn", href: "#", icon: Linkedin },
+    { label: "Twitter", href: "#", icon: Twitter },
   ];
 
   const quickLinks = [
-    { label: 'About', href: '/#about' },
-    { label: 'Services', href: '/#services' },
-    { label: 'Contact', href: '/#contact' },
+    { label: "About", href: "/#about" },
+    { label: "Services", href: "/#services" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
-    <footer id="contact" className="bg-white dark:bg-background text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300">
+    <footer
+      id="contact"
+      className="bg-white dark:bg-background text-foreground pt-24 pb-8 px-6 md:px-12 relative overflow-hidden transition-colors duration-300"
+    >
       {/* Decorative Gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-
           {/* Brand & CTA Section */}
           <div className="md:col-span-6 flex flex-col justify-between">
             <div className="mb-12">
               <Link href="/" className="inline-block group">
                 <div className="flex items-center">
-                  <span className="text-4xl md:text-6xl font-bold tracking-widest uppercase text-brand">VOL</span>
-                  <span className="text-4xl md:text-6xl font-bold tracking-widest text-foreground uppercase">TICS</span>
+                  <span className="text-4xl md:text-6xl font-bold tracking-widest uppercase text-brand">
+                    VOL
+                  </span>
+                  <span className="text-4xl md:text-6xl font-bold tracking-widest text-foreground uppercase">
+                    TICS
+                  </span>
                 </div>
               </Link>
               <p className="mt-6 text-black dark:text-white text-lg max-w-md leading-relaxed">
-                Criamos experiências digitais que conectam marcas a pessoas através de design estratégico e tecnologia de ponta.
+                Criamos experiências digitais que conectam marcas a pessoas
+                através de design estratégico e tecnologia de ponta.
               </p>
             </div>
 
@@ -53,10 +60,11 @@ export function Footer() {
 
           {/* Links Section */}
           <div className="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-12 md:pl-12">
-
             {/* Quick Links */}
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">Menu</h4>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">
+                Menu
+              </h4>
               <ul className="space-y-4">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
@@ -74,7 +82,9 @@ export function Footer() {
 
             {/* Socials */}
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">Social</h4>
+              <h4 className="text-sm font-bold uppercase tracking-widest text-black dark:text-white mb-8">
+                Social
+              </h4>
               <ul className="space-y-4">
                 {socialLinks.map((social) => (
                   <li key={social.label}>
@@ -82,15 +92,16 @@ export function Footer() {
                       href={social.href}
                       className="flex items-center gap-3 text-lg text-foreground/70 hover:text-foreground transition-colors group"
                     >
-                      <social.icon size={20} className="group-hover:text-brand transition-colors" />
+                      <social.icon
+                        size={20}
+                        className="group-hover:text-brand transition-colors"
+                      />
                       <span>{social.label}</span>
                     </a>
                   </li>
                 ))}
               </ul>
-
             </div>
-
           </div>
         </div>
         <div className="grid grid-cols-1 gap-12 md:pl-12 p-20">
@@ -110,8 +121,12 @@ export function Footer() {
             &copy; {currentYear} VOLTICS. Todos os direitos reservados.
           </div>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-foreground transition-colors">Terms of Service</Link>
+            <Link href="#" className="hover:text-foreground transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="hover:text-foreground transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

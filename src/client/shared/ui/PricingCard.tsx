@@ -25,7 +25,7 @@ export function PricingCard({ title, slug, dropPrice, price, paymentText, descri
         }`}
     >
       {popular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand text-black text-xs font-bold uppercase tracking-widest rounded-full">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand text-black text-xs font-bold uppercase tracking-widest rounded-full whitespace-nowrap">
           Mais Procurado
         </div>
       )}

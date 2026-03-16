@@ -55,7 +55,7 @@ export function WhoIsItForSection() {
               {forYou.map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
                   <div className="mt-1.5 w-2 h-2 rounded-full bg-green-500 shrink-0" />
-                  <p className="text-lg text-foreground/80 leading-relaxed">{item}</p>
+                  <p className="text-lg text-foreground  leading-relaxed">{item}</p>
                 </li>
               ))}
             </ul>

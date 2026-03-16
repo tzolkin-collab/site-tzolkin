@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Button } from '@/client/shared/ui/Button';
 import { ArrowRight, User } from 'lucide-react';
+import { trackEvent } from '@/client/shared/utils/analytics';
 
 export function ContactStep() {
   const searchParams = useSearchParams();
@@ -19,6 +20,13 @@ export function ContactStep() {
       fullName: data.fullName,
       email: data.email,
       whatsapp: data.whatsapp
+    });
+    
+    // Tracking UTMify + GTM (Lead Qualificado Inicial)
+    trackEvent('lead', { 
+      email: data.email, 
+      phone: data.whatsapp, 
+      eventName: 'lead_form_started' 
     });
     
     const service = searchParams.get('service');
