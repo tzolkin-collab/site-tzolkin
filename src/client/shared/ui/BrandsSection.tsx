@@ -121,11 +121,8 @@ export function BrandsSection() {
                 </div>
                 <h3 className="text-2xl font-bold text-foreground">Microsserviços</h3>
               </div>
-              
+
               <div className="space-y-4 text-muted-foreground leading-relaxed relative z-10">
-                <p>
-                  As operações modernas exigem fragmentação inteligente. Utilizando <strong className="text-foreground">Microsserviços</strong>, nós da VOLTICS conseguimos escalar soluções complexas de forma modular e independente.
-                </p>
                 <p>
                   Desenvolvemos integrações via <strong className="text-foreground">Webhooks, mensageria (Redis pub/sub, RabbitMQ), automações assíncronas</strong> e muito mais para garantir um trânsito de dados perfeito, sem travamentos de thread na sua aplicação principal.
                 </p>
@@ -135,7 +132,7 @@ export function BrandsSection() {
                   <li>Sincronização em tempo real da loja com o Back-office</li>
                 </ul>
               </div>
-              
+
               <div className="mt-8 relative z-10">
                 <Button variant="primary" onClick={() => setIsModalOpen(false)} className="w-full rounded-full h-12 bg-foreground text-background">
                   Entendi

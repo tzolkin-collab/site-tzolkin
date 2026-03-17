@@ -25,8 +25,7 @@ export function MajorPartnerships({ partnerships }: MajorPartnershipsProps) {
             <span className="text-brand">Parcerias</span>
           </h2>
           <p className="mt-8 text-lg text-black dark:text-white font-helvica max-w-xl">
-            A VOLTICS é uma estrutura de crescimento para marcas que buscam se destacar.
-            Unimos posicionamento e conteúdo para transformar negócios em movimentos autênticos e desejados.
+            Mais que referencias de mercado, são empresas que confiaram em nossa estrutura para escalar seus negócios.
           </p>
         </motion.div>
 

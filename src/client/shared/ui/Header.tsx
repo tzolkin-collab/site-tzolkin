@@ -36,14 +36,19 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-10 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/100 backdrop-blur-md py-4' : 'bg-transparent py-6'
+        className={`fixed top-10 w-full z-50 transition-all duration-300 ${scrolled
+          ? 'py-4 shadow-sm bg-background/80 backdrop-blur-md'
+          : 'bg-transparent py-6'
           }`}
       >
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center group z-50 relative">
-            <div className="text-xl font-bold tracking-widest text-[var(--color-brand)] uppercase">VOL</div>
-            <span className="text-xl font-bold tracking-widest uppercase text-foreground">TICS</span>
+          <Link
+            href="/"
+            className="flex items-center group z-50 relative"
+          >
+            <div className="text-xl font-medium text-[var(--color-brand)] uppercase">VOL</div>
+            <span className="text-xl font-bold uppercase text-foreground">TICS</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -52,7 +57,8 @@ export function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium tracking-wide text-foreground hover:opacity-70 transition-opacity uppercase"
+                className={`text-sm font-medium tracking-wide hover:text-[var(--color-brand)] transition-colors uppercase ${scrolled ? 'text-foreground' : 'text-foreground'
+                  }`}
               >
                 {item.label}
               </Link>
@@ -74,12 +80,13 @@ export function Header() {
             </button>
           </div>
         </div>
-      </header>
+      </header >
 
       {/* Mobile Menu Overlay */}
-      <div
+      < div
         className={`fixed inset-0 bg-background z-40 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden flex flex-col justify-center items-center ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          }`
+        }
       >
         <nav className="flex flex-col items-center gap-8">
           {menuItems.map((item, index) => (
@@ -100,7 +107,7 @@ export function Header() {
         <div className="absolute underline bottom-10 left-0 w-full text-center text-muted-foreground/20 text-sm tracking-[0.5em] uppercase">
           @2023 VOLTICS.
         </div>
-      </div>
+      </div >
     </>
   );
 }

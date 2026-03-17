@@ -36,13 +36,13 @@ export default async function ServicePage(props: Params) {
       <section className="relative pt-15 pb-20 overflow-hidden border-b border-border/50 min-h-[500px]">
         {/* Animated Backgrounds */}
         <PrismBackground className="opacity-100" colors={['var(--brand)', 'var(--brand)', 'var(--brand)']} />
-        
-     
+
+
 
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <Link href="/catalogo" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-foreground transition-colors mb-6">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-foreground transition-colors mb-6">
             <ChevronLeft className="w-4 h-4" />
-            Voltar para Personalizado
+            Voltar para Home
           </Link>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -156,8 +156,8 @@ export default async function ServicePage(props: Params) {
         if (isLastSection && !hasChart) {
           return (
             <section key={idx} className="py-28  text-foreground relative overflow-hidden">
-              <div className="absolute inset-0 z-0 opacity-100 pointer-events-none">
-                 <Antigravity color="var(--background)" count={1700} />
+              <div className="absolute inset-0 z-0 opacity-100 pointer-events-none hidden md:block">
+                <Antigravity color="var(--background)" count={1700} />
               </div>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand via-brand/50 to-transparent z-10" />
               <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[140px] pointer-events-none z-10" />
@@ -220,7 +220,7 @@ export default async function ServicePage(props: Params) {
                   )}
                   <div className="mt-10">
                     <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                      <button className="h-14 px-10 rounded-full bg-foreground text-foreground hover:bg-brand hover:text-black text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                      <button className="h-14 px-10 rounded-full bg-foreground text-background hover:bg-brand hover:text-black text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
                         Falar Com Especialista
                         <ArrowRight className="w-4 h-4" />
                       </button>
@@ -271,7 +271,7 @@ export default async function ServicePage(props: Params) {
 
                   {/* Gráfico */}
                   <div className={`${!isEven ? 'lg:order-1' : ''}`}>
-                    <div className="rounded-3xl border border-border/40 bg-white/[0.02] dark:bg-neutral-900/40 p-8 md:p-10 backdrop-blur-sm">
+                    <div className="rounded-3xl border border-border/40 bg-white/[0.02] dark:bg-neutral-900/40 p-8 px-2 md:p-10 backdrop-blur-sm">
                       <div className="flex items-center gap-3 mb-8 pb-5 border-b border-border/30">
                         <div className="w-9 h-9 rounded-full bg-brand/10 flex items-center justify-center">
                           <BarChart3 className="w-4 h-4 text-brand" />
@@ -316,12 +316,12 @@ export default async function ServicePage(props: Params) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             <div className="col-span-1 lg:col-span-5 flex flex-col justify-center">
               <div className="w-12 h-12 rounded-full bg-background/10 flex items-center justify-center mb-8 border border-white/10">
-                <GitBranch className="w-6 h-6 text-foreground" />
+                <GitBranch className="w-6 h-6 text-background" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-foreground tracking-tight mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-black text-background tracking-tight mb-6 leading-tight">
                 Engenharia de ponta, repositórios nativos.
               </h2>
-              <p className="text-lg text-foreground/70 mb-12 leading-relaxed">
+              <p className="text-lg text-background/70 mb-12 leading-relaxed">
                 Entregamos controle absoluto. Nossos projetos são modulares e versionados com os mais altos padrões de CI/CD para seu time de dev herdar a operação com maestria.
               </p>
 
@@ -329,7 +329,7 @@ export default async function ServicePage(props: Params) {
                 <div className="relative inline-flex group cursor-pointer">
                   {/* Background Blur Glow */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-brand/50 to-brand/50 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
-                  
+
                   {/* Border Container */}
                   <div className="relative rounded-full p-[2px] overflow-hidden flex items-center justify-center shadow-2xl">
                     <div
@@ -348,7 +348,7 @@ export default async function ServicePage(props: Params) {
             </div>
 
             <div className="col-span-1 lg:col-span-7 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground via-transparent to-transparent z-10 pointer-events-none w-12" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none w-12" />
               <ServiceGithub integrations={service.githubIntegrations} />
             </div>
           </div>

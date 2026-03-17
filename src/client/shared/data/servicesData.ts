@@ -12,6 +12,10 @@ export interface ServiceData {
     label2?: string;
     dataKey3?: string;
     label3?: string;
+    color?: string;
+    color2?: string;
+    color3?: string;
+    colorAxis?: string;
   };
   mermaidString: string;
   githubIntegrations: {
@@ -25,17 +29,21 @@ export interface ServiceData {
     headline: string;
     content: string[];
     copyAction?: string;
-      chart?: {
-        data: any[];
-        config: {
-          type: 'area' | 'bar' | 'line' | 'pie' | 'funnel';
-          dataKey1: string;
-          label1: string;
-          dataKey2?: string;
-          label2?: string;
-          dataKey3?: string;
-          label3?: string;
-        };
+    chart?: {
+      data: any[];
+      config: {
+        type: 'area' | 'bar' | 'line' | 'pie' | 'funnel';
+        dataKey1: string;
+        label1: string;
+        dataKey2?: string;
+        label2?: string;
+        dataKey3?: string;
+        label3?: string;
+        color?: string;
+        color2?: string;
+        color3?: string;
+        colorAxis?: string;
+      };
     };
   }[];
   marqueeItems?: string[];
@@ -87,19 +95,19 @@ export const servicesData: Record<string, ServiceData> = {
         chart: {
           data: [
             { name: '0.8s', value1: 4, value3: 96 },
-            { name: '',     value1: 8, value3: 92 },
+            { name: '', value1: 8, value3: 92 },
             { name: '1.5s', value1: 15, value3: 85 },
-            { name: '',     value1: 22, value3: 78 },
+            { name: '', value1: 22, value3: 78 },
             { name: '2.5s', value1: 34, value3: 66 },
-            { name: '',     value1: 45, value3: 55 },
+            { name: '', value1: 45, value3: 55 },
             { name: '3.5s', value1: 54, value3: 46 },
-            { name: '',     value1: 62, value3: 38 },
+            { name: '', value1: 62, value3: 38 },
             { name: '4.5s', value1: 71, value3: 29 },
-            { name: '',     value1: 78, value3: 22 },
+            { name: '', value1: 78, value3: 22 },
             { name: '5.5s', value1: 85, value3: 15 },
-            { name: '',     value1: 90, value3: 10 },
+            { name: '', value1: 90, value3: 10 },
             { name: '6.5s', value1: 94, value3: 6 },
-            { name: '',     value1: 96, value3: 4 },
+            { name: '', value1: 96, value3: 4 },
             { name: '8.0s', value1: 98, value3: 2 },
             { name: '10s+', value1: 99, value3: 1 },
           ],
@@ -109,6 +117,9 @@ export const servicesData: Record<string, ServiceData> = {
             label1: 'Usuários Retidos (%)',
             dataKey3: 'value1',
             label3: 'Taxa de Rejeição / Abandono (%)',
+            color: '#40bb21',
+            color3: '#ff4444',
+
           }
         }
       },
@@ -131,6 +142,7 @@ export const servicesData: Record<string, ServiceData> = {
             type: 'funnel',
             dataKey1: 'value1',
             label1: 'Custo por Aquisição - CPA (R$)',
+            color: '#40bb21',
           }
         }
       },
@@ -152,6 +164,7 @@ export const servicesData: Record<string, ServiceData> = {
             type: 'bar',
             dataKey1: 'value1',
             label1: 'Impacto na Conversão por Elemento (%)',
+            colorAxis: '#888888',
           }
         }
       },
@@ -333,12 +346,14 @@ export const servicesData: Record<string, ServiceData> = {
     },
     mermaidString: `
       graph TD
-        A[Cliente] --> B[Load Balancer]
-        B --> C[Microserviço: Catálogo]
-        B --> D[Microserviço: Carrinho]
-        D --> E{Gateway Pagamento}
-        E -->|Sucesso| F[Webhook Fulfillment]
-        E -->|Falha| G[Recuperação de Carrinho]
+        A[Cliente] --> B[Anúncios] 
+        B -->|UTMS| C[Catálogo]
+        C -->|Add to Cart| D[Carrinho]
+        D -->|Initiate Checkout| E{Gateway Pagamento}
+        E -->|Purchase| F[Venda Aprovada!]
+        E -->|Cart_failed| G[Mail Marketing]
+        G -->|Cart_recovered| H[Seu Funil]
+        F --> I[Data Warehouse]
     `,
     githubIntegrations: [
       { repo: 'commerce/storefront', description: 'Headless Shopify PWA ultra otimizado.', language: 'TypeScript', lastCommit: 'Há 1 hora', hash: 'c9d8e7f' },

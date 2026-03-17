@@ -31,7 +31,7 @@ export function MethodTOISection() {
   };
 
   return (
-    <section className="pt-12 pb-20 md:py-32 bg-background relative overflow-hidden">
+    <section className="pt-12 pb-14 md:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
 
@@ -44,7 +44,7 @@ export function MethodTOISection() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-                Na VOLTICS, a gente para de testar coisa solta e organiza sua marca com um <span className="text-brand">método próprio</span>
+                Na VOLTICS, a gente para de testar coisa solta e organiza sua marca com <span className="text-brand">método & velocidade</span>
               </h2>
 
               <div className="space-y-6">
@@ -53,7 +53,7 @@ export function MethodTOISection() {
                 </h3>
 
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-xl font-helvica">
-                  Enquanto eles empilham posts, o Método GT™ alinha <span className="text-foreground font-semibold">marca</span>, <span className="text-foreground font-semibold">mensagem</span> e <span className="text-foreground font-semibold">venda</span>.
+                  Enquanto eles empilham <span className="text-foreground font-semibold">posts</span>, o Método GT™ alinha <span className="text-foreground font-semibold">funil</span>, <span className="text-foreground font-semibold">estrutura</span> e <span className="text-foreground font-semibold">recorrência</span>.
                 </p>
 
                 <div className="pt-8">
@@ -96,7 +96,7 @@ export function MethodTOISection() {
                     <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest border border-border px-2 py-1 rounded">Análise</span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-[3.2rem]">
-                    Subimos os primeiros anúncios (ADs) para injetar volume. Através de um tracking inteligente, coletamos as métricas exatas do seu público-alvo inicial.
+                    Através de um tracking inteligente, coletamos as métricas exatas do seu público-alvo inicial.
                   </p>
                 </motion.div>
 
@@ -113,7 +113,7 @@ export function MethodTOISection() {
                     <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest border border-border px-2 py-1 rounded">Estrutura</span>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-[3.5rem]">
-                    Com os dados em mãos, nosso time refina e automatiza processos na sua estrutura. O objetivo é claro: maximizar as conversões gastando menos dinheiro.
+                    Com clareza absoluta do seu público-alvo, te ajudamos a sofisticar sua estrutura. <span className="font-bold">Gasta bem menos!</span>
                   </p>
                 </motion.div>
 

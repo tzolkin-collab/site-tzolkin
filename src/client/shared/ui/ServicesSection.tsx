@@ -16,8 +16,8 @@ const services = [
   },
   {
     icon: Zap,
-    title: "DIRECT RESPONSIVE",
-    subtitle: "Somos especialistas em direct. Com nossa metodologia de growth e escala, conseguimos oferecer testes A/b baratos para sua operação.",
+    title: "CANAIS DE VENDAS",
+    subtitle: "Somos especialistas em direct responsive. Com nossa metodologia de growth e escala, conseguimos oferecer MVPs rápidos e baratos para você validar sua operação.",
     description: <>Nossa expertise permite você manter seu foco 100% nas suas responsabilidades enquanto nós sofisticamos sua estrutura visando <span className="font-bold">CONVERSÕES!</span></>,
     gradient: "from-yellow-500/10 via-neutral-950/50 to-neutral-950",
     iconGradient: "from-[#FFD100] to-[#FFEA80]",
@@ -27,7 +27,9 @@ const services = [
     icon: PenTool,
     title: "DRAW YOUR BRANDING",
     subtitle: "Nossa metodologia exclusiva de comunicação. Com Heads de copy e estrutura profissionais.",
-    description: <>UX e UI no ponto exato que seu lead gostaria. Nosso foco é o <span className="font-bold">80/20</span> da sua operação, desde o MVP até a produção.</>,
+    description: <>UX e UI no ponto exato que seu lead gostaria. Nosso foco é o <span className="font-bold">80/20</span> da sua operação, desde o MVP até a produção.
+      Tudo para você ter um produto que causa desejo no seu cliente e estar sempre a frente da competição.
+    </>,
     gradient: "from-purple-500/10 via-neutral-950/50 to-neutral-950",
     iconGradient: "from-purple-500 to-purple-300",
     color: "#A855F7"
@@ -139,14 +141,15 @@ export function ServicesSection() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-24 space-y-6">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter max-w-4xl text-foreground">
-            A VOLTICS estrutura o marketing da sua empresa com <span className="text-brand">soluções sob medida</span>
+            Você tem a ideia, <span className="text-brand"><br></br>a Voltics faz </span>
+            acontecer
           </h2>
-          <p className="text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl font-helvica leading-relaxed">
-            Esses são os serviços que usamos pra sua marca ser vista, lembrada e escolhida e não só aparecer no feed.
+          <p className="text-xl text-neutral-500 dark:text-neutral-200 max-w-2xl font-helvica leading-relaxed">
+            Sem nós soltos, estruturamos sua operação inteira, do zero, de forma intercontinental.
           </p>
         </div>
 
-        <div className="flex flex-col gap-12 relative pb-24">
+        <div className="flex flex-col gap-12 relative pb-12">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}
@@ -156,14 +159,14 @@ export function ServicesSection() {
         <div className="flex justify-center mt-12 relative z-20">
           <div className="relative group transition-transform duration-300 hover:scale-105 active:scale-95">
             {/* Background Blur Glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#FFD100]/50 to-[#FFD100]/50 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--brand)]/50 to-[var(--brand)]/50 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
 
             {/* Border Container */}
             <div className="relative rounded-full p-[2px] overflow-hidden">
               {/* Spinning Border Animation - Responsive Square */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] aspect-square animate-[spin_4s_linear_infinite]"
                 style={{
-                  backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, #FFD100 160deg, transparent 180deg 320deg, #FFD100 340deg, transparent 360deg)`
+                  backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, var(--brand) 160deg, transparent 180deg 320deg, var(--brand) 340deg, transparent 360deg)`
                 }}
               />
 

@@ -14,7 +14,7 @@ export function FloatingChatButton() {
       <div className="absolute -inset-1 bg-gradient-to-r from-[#40bb21]/50 to-[#40bb21]/50 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-500" />
 
       {/* Border Container */}
-      <div className="relative rounded-full p-[2px] overflow-hidden flex items-center justify-center shadow-2xl">
+      <div className="relative mb-10 rounded-full p-[2px] overflow-hidden flex items-center justify-center shadow-2xl">
         {/* Spinning Border Animation */}
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] aspect-square animate-[spin_4s_linear_infinite]"

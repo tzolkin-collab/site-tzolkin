@@ -87,7 +87,7 @@ export default function CatalogoPage() {
           Cada Projeto é Único.<br />
           <span className="text-brand">A Solução Também.</span>
         </h1>
-        <p className="text-xl text-foreground/60 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-xl text-foreground/60 leading-relaxed max-w-2xl mx-8">
           Não vendemos pacotes genéricos. Construímos infraestrutura digital sob medida para a realidade da sua operação, com tecnologia de ponta e foco em ROI.
         </p>
       </motion.div>

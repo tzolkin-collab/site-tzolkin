@@ -44,10 +44,6 @@ export function TrafficProblemSection() {
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
                 Você paga caro pelo cliente e ainda <span className="text-red-500">deixa dinheiro na mesa.</span>
               </h2>
-
-              <p className="text-xl md:text-2xl text-foreground font-medium">
-                Tráfego pago não corrige marca fraca.
-              </p>
             </motion.div>
 
             <motion.p

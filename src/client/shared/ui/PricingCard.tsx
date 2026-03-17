@@ -19,7 +19,7 @@ export function PricingCard({ title, slug, dropPrice, price, paymentText, descri
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className={`relative flex flex-col p-8 md:p-10 rounded-3xl border transition-all duration-300 w-[85vw] max-w-[340px] md:max-w-none md:w-[420px] shrink-0 snap-center ${popular
+      className={`relative flex flex-col p-8 md:p-10 rounded-3xl border w-[85vw] max-w-[340px] md:max-w-none md:w-[420px] shrink-0 ${popular
         ? 'bg-brand/5 border-brand/50'
         : 'bg-white/5 dark:bg-neutral-900 border-border/50 hover:border-brand/30'
         }`}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export function FounderSection() {
   return (
-    <section id="about" className="py-18 bg-background text-foreground relative overflow-hidden">
+    <section id="about" className="py-8 bg-background text-foreground relative overflow-hidden">
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
@@ -19,9 +19,9 @@ export function FounderSection() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-2">
-                Quem puxa o <span className="text-brand">movimento</span> da VOLTICS.
+                Quem puxa o <span className="text-brand">movimento</span> da <span className="text-brand">VOLTICS</span>.
               </h2>
-              <p className="text-xl text-foreground font-medium mb-8">Gustavo Sales - Sócio & Founder</p>
+              <p className="text-xl text-foreground font-medium mb-8">Gustavo Sales | Sócio Majoritário & Co-Founder</p>
 
               <div className="space-y-6 text-lg text-foreground leading-relaxed font-helvica">
                 <p>

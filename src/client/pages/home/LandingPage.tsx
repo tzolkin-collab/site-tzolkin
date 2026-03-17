@@ -118,10 +118,9 @@ export function LandingPage() {
           </div>
           <p className="max-w-md px-4 md:pr-2 pr-8 bg-white font-montserrat dark:bg-background md:bg-black md:pb-6 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
             <Quote className="w-8 h-8 text-black dark:text-white mb-2 fill-white darK:fill-black" />
-            Se sua <span className="text-brand font-bold">marca</span> não anda, não é por falta de esforço.
+            Se sua <span className="text-brand font-bold"> operação</span> não anda, não é por falta de esforço.
             É por falta de <span className="text-brand font-bold">direção</span>.
             Hoje ou você <span className="text-brand font-bold">vende on-line</span> ou enfrenta uma <span className="text-brand font-bold">competição desleal</span>.
-            Sua presença é necessaria no <span className="text-brand font-bold">maior canal de vendas do mundo!</span>
           </p>
 
           {/* Center Card */}
@@ -141,7 +140,7 @@ export function LandingPage() {
               <h3 className="text-2xl font-bold text-white dark:text-black uppercase transition-colors duration-100">
                 Sem enrolação
               </h3>
-              <p className="text-neutral-400 dark:text-neutral-600 text-sm leading-relaxed transition-colors duration-500">
+              <p className="text-neutral-200 dark:text-neutral-600 text-sm leading-relaxed transition-colors duration-500">
                 A Voltics é uma empresa B2B famosa pelo atendimento exclusivo e produtos técnologicos de alto padrão, também pela atualização de sistemas legados e desenvolvimento de novos canais de vendas para empresas de todos os nichos. Não somos agencia, nós temos a solução para o seu problema.
               </p>
             </div>

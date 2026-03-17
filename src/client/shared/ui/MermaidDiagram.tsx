@@ -23,8 +23,8 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
           theme: 'base',
           themeVariables: {
             primaryColor: 'rgba(255, 255, 255, 0.05)',
-            primaryTextColor: '#EAEAEA',
-            primaryBorderColor: 'rgba(255, 255, 255, 0.1)',
+            primaryTextColor: '#eaeaeaff',
+            primaryBorderColor: 'rgba(25, 145, 31, 0.65)',
             lineColor: 'rgba(255, 255, 255, 0.2)',
             secondaryColor: 'rgba(0, 0, 0, 0.5)',
             tertiaryColor: 'transparent',
@@ -40,7 +40,7 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
         // Use um ID unico por instância
         const id = `mermaid-svg-${Math.random().toString(36).substring(2, 9)}`;
         const { svg } = await mermaid.render(id, chart);
-        
+
         if (isMounted) {
           setSvgContent(svg);
           setError(false);
@@ -71,7 +71,7 @@ export function MermaidDiagram({ chart }: MermaidDiagramProps) {
   }
 
   return (
-    <div 
+    <div
       className="w-full h-full min-h-[300px] flex items-center justify-center overflow-x-auto overflow-y-hidden text-foreground"
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: svgContent }}

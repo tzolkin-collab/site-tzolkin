@@ -8,6 +8,9 @@ import {
 } from 'recharts';
 
 
+import { useTheme } from 'next-themes';
+
+
 interface ServiceChartProps {
   data: any[];
   config: {
@@ -18,6 +21,10 @@ interface ServiceChartProps {
     label2?: string;
     dataKey3?: string;
     label3?: string;
+    color?: string;
+    color2?: string;
+    color3?: string;
+    colorAxis?: string;
   };
 }
 
@@ -25,6 +32,7 @@ const PIE_COLORS = ['#FFD100', '#333333', '#888888', '#BBBBBB'];
 
 export function ServiceChart({ data, config }: ServiceChartProps) {
   const [mounted, setMounted] = React.useState(false);
+  const { resolvedTheme } = useTheme();
   const [colors, setColors] = React.useState({
     text: 'currentColor',
     brand: '#EAEAEA',
@@ -41,19 +49,20 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
     };
 
     setColors({
-      text: getColor('--muted-foreground'),
+      text: getColor('--foreground'), // Atualizado conforme seu edit anterior
       brand: getColor('--brand'),
       brandAlt: getColor('--foreground')
     });
-  }, []);
+  }, [resolvedTheme]);
 
   if (!mounted) {
     return <div className="w-full h-full min-h-[300px]" />;
   }
 
-  const textColor = colors.text;
-  const brandColor = colors.brand;
-  const brandColorAlt = colors.brandAlt;
+  const axisColor = config.colorAxis || colors.text;
+  const brandColor = config.color || colors.brand;
+  const brandColorAlt = config.color2 || colors.brandAlt;
+  const brandColor3 = config.color3 || colors.text;
 
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -64,7 +73,7 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
             <div key={index} className="flex flex-col gap-2">
               <p className="flex items-center gap-2" style={{ color: entry.color || entry.payload?.fill }}>
                 <span className="w-2 h-2 rounded-full min-w-[8px]" style={{ backgroundColor: entry.color || entry.payload?.fill }} />
-                <span className="font-medium">{entry.name}:</span> {entry.value}{config.type === 'pie' ? '%' : ''}
+                <span className="font-medium text-foreground">{entry.name}:</span> {entry.value}{config.type === 'pie' ? '%' : ''}
               </p>
               {entry.payload?.description && (
                 <p className="text-xs text-foreground/70 leading-relaxed font-normal ml-4">
@@ -96,13 +105,13 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                 const opacity = Math.max(0.3, 1 - ((data.length - 1 - i) * 0.18));
                 return (
                   <div key={i} className="flex items-center gap-2 cursor-default group">
-                    <div 
+                    <div
                       className="w-4 h-4 rounded-sm transition-all duration-300 group-hover:scale-110"
-                      style={{ 
-                        backgroundColor: brandColor, 
+                      style={{
+                        backgroundColor: brandColor,
                         opacity: opacity,
                         boxShadow: `0 0 8px ${brandColor}40`
-                      }} 
+                      }}
                     />
                     <span className="text-sm font-bold tracking-wide text-foreground/90 group-hover:text-foreground transition-colors">{item.name}</span>
                   </div>
@@ -111,7 +120,7 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
             </div>
 
             {/* SVG Funnel Shape */}
-            <div className="w-full max-w-[500px] flex-1 min-h-[250px] relative">
+            <div className="w-full max-w-[500px] flex-1 min-h-[250px] relative mb-15">
               <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} preserveAspectRatio="xMidYMid meet" className="w-full h-full overflow-visible">
                 <defs>
                   {/* Subtle neon glow for the outlines */}
@@ -128,27 +137,27 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                   const value = item[config.dataKey1];
                   // The last item's bottom width matches its top width (rectangle shape)
                   const nextValue = i < data.length - 1 ? data[i + 1][config.dataKey1] : value;
-                  
+
                   const topW = (value / maxValue) * chartWidth;
                   const botW = (nextValue / maxValue) * chartWidth;
-                  
+
                   const yTop = i * sliceHeight + (i !== 0 ? gap : 0);
                   const yBot = (i + 1) * sliceHeight - (i !== data.length - 1 ? gap : 0);
-                  
+
                   const xTopLeft = (chartWidth - topW) / 2;
                   const xTopRight = xTopLeft + topW;
                   const xBotLeft = (chartWidth - botW) / 2;
                   const xBotRight = xBotLeft + botW;
-                  
+
                   // Drawing trapezoid with SVG path
                   const d = `M ${xTopLeft} ${yTop} L ${xTopRight} ${yTop} L ${xBotRight} ${yBot} L ${xBotLeft} ${yBot} Z`;
-                  
+
                   const opacity = Math.max(0.3, 1 - ((data.length - 1 - i) * 0.18));
-                  
+
                   return (
                     <g key={i} className="group cursor-default transition-all duration-300">
                       <title>{item.name}: {value}</title>
-                      <path 
+                      <path
                         d={d}
                         fill={brandColor}
                         fillOpacity={opacity}
@@ -157,15 +166,15 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                         strokeLinejoin="round"
                         className="transition-all duration-500 ease-out group-hover:brightness-125 hover:drop-shadow-[0_0_15px_rgba(64,187,33,0.5)]"
                       />
-                      <text 
-                        x={chartWidth / 2} 
-                        y={(yTop + yBot) / 2} 
-                        dominantBaseline="middle" 
-                        textAnchor="middle" 
+                      <text
+                        x={chartWidth / 2}
+                        y={(yTop + yBot) / 2}
+                        dominantBaseline="middle"
+                        textAnchor="middle"
                         fill="#FFFFFF"
                         fontWeight="900"
                         fontSize="18"
-                        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.5)" }}
+                        style={{ textShadow: "0px 2px 4px rgba(0, 0, 0, 0)" }}
                         className="pointer-events-none"
                       >
                         {value}
@@ -196,35 +205,35 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                 )}
                 {cfg.dataKey3 && (
                   <linearGradient id="color3" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={textColor} stopOpacity={0.4} />
-                    <stop offset="95%" stopColor={textColor} stopOpacity={0} />
+                    <stop offset="5%" stopColor={brandColor3} stopOpacity={0.4} />
+                    <stop offset="95%" stopColor={brandColor3} stopOpacity={0} />
                   </linearGradient>
                 )}
               </defs>
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.2} />
-              <XAxis dataKey="name" stroke={textColor} fontSize={10} tickLine={false} axisLine={false} />
-              <YAxis 
-                stroke={textColor} 
-                fontSize={10} 
-                tickLine={false} 
-                axisLine={false} 
+              <XAxis dataKey="name" stroke={axisColor} fontSize={10} tickLine={false} axisLine={false} />
+              <YAxis
+                stroke={axisColor}
+                fontSize={10}
+                tickLine={false}
+                axisLine={false}
                 tickFormatter={(value) => {
                   if (value >= 1000) return `${value / 1000}k`;
                   // Adicionando sufixo '%' se os valores do chart forem de 0 a 100
                   const isPercentage = data.every(d => d[cfg.dataKey1] <= 100 && (cfg.dataKey3 ? d[cfg.dataKey3] <= 100 : true));
                   return isPercentage ? `${value}%` : value;
-                }} 
+                }}
               />
               <Tooltip content={<CustomTooltip />} />
-              
+
               <Area type="monotone" dataKey={cfg.dataKey1} name={cfg.label1} stroke={brandColor} strokeWidth={2} fillOpacity={1} fill="url(#color1)" activeDot={{ r: 6, fill: brandColor, strokeWidth: 0 }} />
-              
+
               {cfg.dataKey2 && (
                 <Area type="monotone" dataKey={cfg.dataKey2} name={cfg.label2} stroke={brandColorAlt} strokeWidth={2} fillOpacity={1} fill="url(#color2)" activeDot={{ r: 5, fill: brandColorAlt, strokeWidth: 0 }} />
               )}
-              
+
               {cfg.dataKey3 && (
-                <Area type="monotone" dataKey={cfg.dataKey3} name={cfg.label3} stroke={textColor} strokeWidth={2} fillOpacity={1} fill="url(#color3)" activeDot={{ r: 4, fill: textColor, strokeWidth: 0 }} />
+                <Area type="monotone" dataKey={cfg.dataKey3} name={cfg.label3} stroke={brandColor3} strokeWidth={2} fillOpacity={1} fill="url(#color3)" activeDot={{ r: 4, fill: brandColor3, strokeWidth: 0 }} />
               )}
             </AreaChart>
           </ResponsiveContainer>
@@ -234,8 +243,8 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.4} />
-              <XAxis dataKey="name" stroke={textColor} fontSize={12} tickLine={false} axisLine={false} />
-              <YAxis stroke={textColor} fontSize={12} tickLine={false} axisLine={false} />
+              <XAxis dataKey="name" stroke={axisColor} fontSize={12} tickLine={false} axisLine={false} />
+              <YAxis stroke={axisColor} fontSize={12} tickLine={false} axisLine={false} />
               <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted)/0.1)' }} />
               <Bar dataKey={config.dataKey1} name={config.label1} fill={brandColor} radius={[4, 4, 0, 0]} />
               {config.dataKey2 && (
@@ -278,13 +287,13 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
       default:
         return (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.4} />
-              <XAxis dataKey="name" stroke={textColor} fontSize={12} tickLine={false} axisLine={false} />
-              <YAxis stroke={textColor} fontSize={12} tickLine={false} axisLine={false} />
+            <LineChart data={data} margin={{ top: 10, right: 10, left: -30, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={true} stroke="hsl(var(--border))" opacity={0.4} />
+              <XAxis dataKey="name" stroke={axisColor} fontSize={12} tickLine={false} axisLine={false} />
+              <YAxis stroke={axisColor} fontSize={12} tickLine={false} axisLine={false} />
               <Tooltip content={<CustomTooltip />} />
               {config.dataKey2 && (
-                <Line type="monotone" dataKey={config.dataKey2} name={config.label2} stroke={brandColorAlt} strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey={config.dataKey2} name={config.label2} stroke={brandColorAlt} strokeWidth={2} dot={true} />
               )}
               <Line type="monotone" dataKey={config.dataKey1} name={config.label1} stroke={brandColor} strokeWidth={2} dot={{ r: 4, fill: brandColor, strokeWidth: 0 }} activeDot={{ r: 6 }} />
             </LineChart>
