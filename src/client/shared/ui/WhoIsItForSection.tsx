@@ -4,20 +4,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, XCircle } from 'lucide-react';
 
-export function WhoIsItForSection() {
-  const forYou = [
-    "Operações que precisam de infraestrutura digital profissional, rápida e escalável para crescer.",
-    "Negócios cansados de páginas amadoras que travam e derrubam as taxas de conversão.",
-    "Empresas que buscam tagueamento avançado (UTMify, CAPI, GTM) para otimizar o ROAS.",
-    "Você que entende que design premium e performance técnica são fundamentais."
-  ];
+const forYou = [
+  "Operações que precisam de infraestrutura digital profissional, rápida e escalável para crescer.",
+  "Negócios cansados de páginas amadoras que travam e derrubam as taxas de conversão.",
+  "Empresas que buscam tagueamento avançado (UTMify, CAPI, GTM) para otimizar o ROAS.",
+  "Você que entende que design premium e performance técnica são fundamentais."
+];
 
-  const notForYou = [
-    "Quem busca soluções genéricas de arrastar-e-soltar ou templates engessados e lentos.",
-    "Operações que não dão importância para velocidade de carregamento e design exclusivo.",
-    "Quem quer o 'mais barato hoje', mesmo que isso custe vendas perdidas amanhã.",
-    "Você que acredita que uma landing page sem tagueamento profissional não afeta resultados."
-  ];
+const notForYou = [
+  "Quem busca soluções genéricas de arrastar-e-soltar ou templates engessados e lentos.",
+  "Operações que não dão importância para velocidade de carregamento e design exclusivo.",
+  "Quem quer o 'mais barato hoje', mesmo que isso custe vendas perdidas amanhã.",
+  "Você que acredita que uma landing page sem tagueamento profissional não afeta resultados."
+];
+
+export function WhoIsItForSection() {
 
   return (
     <section className="py-24 bg-background">
@@ -30,7 +31,7 @@ export function WhoIsItForSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold leading-tight"
           >
-            Pra quem a VOLTICS <span className="text-brand">faz sentido</span>.
+            Pra quem a tzolkin <span className="text-brand">faz sentido</span>.
           </motion.h2>
         </div>
 
@@ -38,10 +39,10 @@ export function WhoIsItForSection() {
 
           {/* É PRA VOCÊ */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="bg-white dark:bg-background border border-green-500/20 rounded-3xl p-8 md:p-10 shadow-lg relative overflow-hidden group hover:border-green-500/50 transition-colors"
           >
             <div className="absolute top-0 left-0 w-full h-2 bg-green-500" />
@@ -63,10 +64,10 @@ export function WhoIsItForSection() {
 
           {/* NÃO É PRA VOCÊ */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="bg-white dark:bg-background border border-red-500/20 rounded-3xl p-8 md:p-10 shadow-lg relative overflow-hidden group hover:border-red-500/50 transition-colors"
           >
             <div className="absolute top-0 left-0 w-full h-2 bg-red-500" />

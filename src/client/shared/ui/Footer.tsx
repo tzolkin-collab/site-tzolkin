@@ -5,20 +5,21 @@ import Link from "next/link";
 import { ArrowUpRight, Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 
+const socialLinks = [
+  { label: "Instagram", href: "#", icon: Instagram },
+  { label: "LinkedIn", href: "#", icon: Linkedin },
+  { label: "Twitter", href: "#", icon: Twitter },
+];
+
+const quickLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const currentYear = new Date().getFullYear();
+
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { label: "Instagram", href: "#", icon: Instagram },
-    { label: "LinkedIn", href: "#", icon: Linkedin },
-    { label: "Twitter", href: "#", icon: Twitter },
-  ];
-
-  const quickLinks = [
-    { label: "About", href: "/#about" },
-    { label: "Services", href: "/#services" },
-    { label: "Contact", href: "/#contact" },
-  ];
 
   return (
     <footer
@@ -36,10 +37,10 @@ export function Footer() {
               <Link href="/" className="inline-block group">
                 <div className="flex items-center">
                   <span className="text-4xl md:text-6xl font-bold tracking-widest uppercase text-brand">
-                    VOL
+                    tz
                   </span>
                   <span className="text-4xl md:text-6xl font-bold tracking-widest text-foreground uppercase">
-                    TICS
+                    olkin
                   </span>
                 </div>
               </Link>
@@ -104,21 +105,21 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-12 md:pl-12 px-20">
-          <Link href="/" className="inline-block group mx-auto">
+        <div className="flex justify-center py-8">
+          <Link href="/" className="inline-block group">
             <Image
-              src="/logoVoltics.jpg"
-              alt="Voltics Logo"
-              width={160}
-              height={60}
-              className="rounded-full object-contain"
+              src="/logotzolkin.svg"
+              alt="tzolkin Logo"
+              width={80}
+              height={80}
+              className="rounded-2xl object-contain dark:invert"
             />
           </Link>
         </div>
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-foreground/10 text-black dark:text-white text-sm">
           <div className="mb-4 md:mb-0">
-            &copy; {currentYear} VOLTICS. Todos os direitos reservados.
+            &copy; {currentYear} tzolkin. Todos os direitos reservados.
           </div>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-foreground transition-colors">

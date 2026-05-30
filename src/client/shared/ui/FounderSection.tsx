@@ -19,7 +19,7 @@ export function FounderSection() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-2">
-                Quem puxa o <span className="text-brand">movimento</span> da <span className="text-brand">VOLTICS</span>.
+                Quem puxa o <span className="text-brand">movimento</span> da <span className="text-brand">tzolkin</span>.
               </h2>
               <p className="text-xl text-foreground font-medium mb-8">Gustavo Sales | Sócio Majoritário & Co-Founder</p>
 
@@ -28,7 +28,7 @@ export function FounderSection() {
                   Não acreditamos em fórmulas mágicas ou gurus de palco. Acreditamos em trabalho duro, estratégia fundamentada e execução impecável.
                 </p>
                 <p>
-                  Minha missão é garantir que cada projeto que sai da VOLTICS não seja apenas &quot;bonito&quot;, mas uma ferramenta poderosa de crescimento para o seu negócio.
+                  Minha missão é garantir que cada projeto que sai da tzolkin não seja apenas &quot;bonito&quot;, mas uma ferramenta poderosa de crescimento para o seu negócio.
                 </p>
                 <p>
                   Unimos a criatividade do design com a precisão dos dados para criar marcas que não apenas sobrevivem, mas lideram seus mercados.

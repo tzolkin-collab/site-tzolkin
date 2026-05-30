@@ -2,33 +2,34 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05
+    }
+  }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
 import { Button } from '@/client/shared/ui/Button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export function MethodTOISection() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
 
   return (
     <section className="pt-12 pb-14 md:py-32 bg-background relative overflow-hidden">
@@ -41,10 +42,10 @@ export function MethodTOISection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-                Na VOLTICS, a gente para de testar coisa solta e organiza sua marca com <span className="text-brand">método & velocidade</span>
+                Na tzolkin, a gente para de testar coisa solta e organiza sua marca com <span className="text-brand">método & velocidade</span>
               </h2>
 
               <div className="space-y-6">

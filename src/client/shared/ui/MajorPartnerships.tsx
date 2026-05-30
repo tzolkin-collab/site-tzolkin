@@ -40,7 +40,7 @@ export function MajorPartnerships({ partnerships }: MajorPartnershipsProps) {
               className={`group cursor-pointer relative ${index % 2 !== 0 ? 'md:mt-24' : ''}`}
             >
               {/* Decorative Background Element - Larger and more subtle for partnerships */}
-              <div className={`absolute -top-32 -right-32 w-96 h-96 ${project.rotation} pointer-events-none select-none z-0 opacity-20 group-hover:opacity-60 transition-opacity duration-700 ease-in-out`}>
+              <div className={`absolute -top-16 -right-16 w-48 h-48 md:-top-32 md:-right-32 md:w-96 md:h-96 ${project.rotation} pointer-events-none select-none z-0 opacity-20 group-hover:opacity-60 transition-opacity duration-700 ease-in-out`}>
                 <div
                   className="w-full h-full bg-brand"
                   style={{
@@ -57,7 +57,7 @@ export function MajorPartnerships({ partnerships }: MajorPartnershipsProps) {
               </div>
 
               {/* Card Container */}
-              <div className="aspect-[16/10] bg-neutral-950 dark:bg-white mb-8 overflow-hidden relative flex items-center justify-center p-16 transition-all duration-700 group-hover:-translate-y-4 z-10 shadow-2xl border border-white/5 dark:border-black/5 group-hover:border-brand/30">
+              <div className="aspect-[16/10] bg-neutral-950 dark:bg-white mb-8 overflow-hidden relative flex items-center justify-center p-8 md:p-16 transition-all duration-700 group-hover:-translate-y-4 z-10 shadow-2xl border border-white/5 dark:border-black/5 group-hover:border-brand/30">
 
                 {/* Gradient Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />

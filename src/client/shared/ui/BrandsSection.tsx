@@ -32,7 +32,7 @@ export function BrandsSection() {
 
               <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed font-helvica">
                 <p>
-                  Aqui não criamos gambiarras. A VOLTICS constrói pipelines robustos integrando ferramentas líderes que você já usa ou precisará no futuro.
+                  Aqui não criamos gambiarras. A tzolkin constrói pipelines robustos integrando ferramentas líderes que você já usa ou precisará no futuro.
                 </p>
                 <p>
                   O objetivo é claro: <span className="text-foreground font-semibold">tornar seu ecossistema fluido, rastreável e totalmente voltado para conversão e controle de dados.</span>

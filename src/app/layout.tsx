@@ -27,10 +27,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "VOLTICS",
+  title: "tzolkin",
   description: "Sofisticação em cada linha.",
   icons: {
-    icon: '/logoVoltics.jpg',
+    icon: '/logotzolkin.jpg',
   },
 };
 

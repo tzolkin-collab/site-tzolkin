@@ -22,8 +22,6 @@ export function TrafficProblemSection() {
 
   return (
     <section className="pb-12 md:py-32 bg-background text-foreground relative overflow-hidden">
-      {/* Background Noise/Texture */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -66,7 +64,7 @@ export function TrafficProblemSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-start gap-6 p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                className="flex items-start gap-6 p-6 md:p-8 rounded-2xl bg-foreground/5 border border-foreground/10 hover:bg-foreground/10 transition-colors"
               >
                 <div className="shrink-0 p-3 rounded-xl bg-red-500/10 text-red-500">
                   <item.icon className="w-6 h-6" />

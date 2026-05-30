@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, useMemo, ReactNode } from 'react';
 
 interface ChatContextProps {
   isChatOpen: boolean;
@@ -14,12 +14,17 @@ const ChatContext = createContext<ChatContextProps | undefined>(undefined);
 export function ChatProvider({ children }: { children: ReactNode }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const toggleChat = () => setIsChatOpen((prev) => !prev);
-  const openChat = () => setIsChatOpen(true);
-  const closeChat = () => setIsChatOpen(false);
+  const toggleChat = useCallback(() => setIsChatOpen((prev) => !prev), []);
+  const openChat = useCallback(() => setIsChatOpen(true), []);
+  const closeChat = useCallback(() => setIsChatOpen(false), []);
+
+  const value = useMemo(
+    () => ({ isChatOpen, toggleChat, openChat, closeChat }),
+    [isChatOpen, toggleChat, openChat, closeChat]
+  );
 
   return (
-    <ChatContext.Provider value={{ isChatOpen, toggleChat, openChat, closeChat }}>
+    <ChatContext.Provider value={value}>
       {children}
     </ChatContext.Provider>
   );

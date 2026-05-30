@@ -12,7 +12,7 @@
 
   --border: oklch(0.922 0 0);
 
-  --brand: #40bb21;
+  --brand: #1d1d1d;
   --brand2: #000000;
   --brand-foreground: #000000;
 
@@ -59,8 +59,8 @@
 
   --border: oklch(1 0 0 / 10%);
 
-  --brand: #40bb21;
-  --brand2: #40bb21;
+  --brand: #ffffff;
+  --brand2: #5660f1;
   --brand-foreground: #000000;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -179,7 +179,7 @@ body {
   font-family: var(--font-montserrat);
   font-variation-settings: "wdth" 115; /* Extended width emulation */
   letter-spacing: -0.02em;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: none;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
@@ -198,12 +198,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideRight {
-  from { opacity: 0; transform: translateX(-50px); }
+  from { opacity: 0; transform: translateX(-20px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
@@ -215,6 +215,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .animate-marquee {
   animation: marquee var(--marquee-duration, 30s) linear infinite;
   width: max-content;
+  will-change: transform;
 }
 
 .animate-marquee:hover {

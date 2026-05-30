@@ -7,17 +7,25 @@ import { Button } from '@/client/shared/ui/Button'
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
 
+  const toggle = () => {
+    const css = document.createElement('style')
+    css.textContent = '*,*::before,*::after{transition:none!important}'
+    document.head.appendChild(css)
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+    requestAnimationFrame(() => requestAnimationFrame(() => document.head.removeChild(css)))
+  }
+
   return (
     <Button
       variant="ghost"
       size="sm"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={toggle}
       className="rounded-full w-9 h-9 p-0"
     >
       <span className="sr-only">Toggle theme</span>
       <div className="relative w-4 h-4 overflow-hidden">
         <svg
-          className="absolute inset-0 w-full h-full transition-all scale-100 rotate-0 dark:scale-0 dark:-rotate-90"
+          className="absolute inset-0 w-full h-full transition-transform duration-200 scale-100 rotate-0 dark:scale-0 dark:-rotate-90"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -30,7 +38,7 @@ export function ModeToggle() {
           />
         </svg>
         <svg
-          className="absolute inset-0 w-full h-full transition-all scale-0 rotate-90 dark:scale-100 dark:rotate-0"
+          className="absolute inset-0 w-full h-full transition-transform duration-200 scale-0 rotate-90 dark:scale-100 dark:rotate-0"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

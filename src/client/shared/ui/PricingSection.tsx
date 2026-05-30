@@ -54,7 +54,7 @@ export function PricingSection() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/5 mb-6 text-sm font-medium tracking-wider uppercase text-brand">
             <Sparkles size={14} />
-            <span>Transparência Voltics</span>
+            <span>Transparência tzolkin</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-foreground">
@@ -67,7 +67,7 @@ export function PricingSection() {
       </div>
 
       {/* Carousel */}
-      <div className="w-full relative z-10 pl-6 md:pl-12 pb-12 py-2 overflow-hidden pr-18" ref={emblaRef}>
+      <div className="w-full relative z-10 pl-6 md:pl-12 pb-12 py-2 overflow-hidden pr-6 md:pr-12" ref={emblaRef}>
         <div
           className="flex gap-6 pb-8 pt-4 cursor-grab active:cursor-grabbing touch-pan-y"
           style={{ willChange: 'transform' }}

@@ -1,14 +1,14 @@
 'use client';
 
 import { Globe, Zap, PenTool, Layers } from 'lucide-react';
-import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { useCallback } from 'react';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 
 const services = [
   {
     icon: Globe,
     title: "PRESENÇA GLOBAL",
-    subtitle: <>A Voltics fornece estrutura de pagamentos global em parceria com a <span className="text-[#635BFF] font-black" style={{ textShadow: '0 0 10px rgba(99,91,255,0.5)' }}>STRIPE</span> connect.</>,
+    subtitle: <>A tzolkin fornece estrutura de pagamentos global em parceria com a <span className="text-[#635BFF] font-black" style={{ textShadow: '0 0 10px rgba(99,91,255,0.5)' }}>STRIPE</span> connect.</>,
     description: <><span className="font-bold">Dropshipping</span>, <span className="font-bold">E-commerce</span>, <span className="font-bold">SAAS</span>, <span className="font-bold">Info-produtos</span>. Também fazemos integrações de pagamento com gateways terceiros dependendo da preferência do cliente.</>,
     gradient: "from-blue-500/10 via-neutral-950/50 to-neutral-950",
     iconGradient: "from-[#635BFF] to-[#8C86FF]",
@@ -49,29 +49,29 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+  const handleMouseMove = useCallback(({ currentTarget, clientX, clientY }: React.MouseEvent) => {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
-  }
+  }, [mouseX, mouseY]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       className="sticky"
       style={{ top: `${150 + index * 20}px` }}
     >
       <div
-        className="relative group rounded-3xl overflow-hidden p-[2px] shadow-2xl backdrop-blur-sm transition-transform duration-500 hover:scale-[1.02]"
+        className="relative group rounded-3xl overflow-hidden p-[2px] shadow-2xl"
         onMouseMove={handleMouseMove}
       >
 
         {/* LED Border Animation - Desktop (Mouse Follow) */}
         <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block pointer-events-none"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block pointer-events-none"
           style={{
             background: useMotionTemplate`
               radial-gradient(
@@ -86,15 +86,16 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
         {/* LED Border Animation - Mobile (Auto Reflection) */}
         <div className="absolute inset-0 opacity-100 md:hidden pointer-events-none">
           <div
-            className="absolute inset-[-50%] animate-[spin_4s_linear_infinite] w-[200%] h-[200%] left-[-50%] top-[-50%]"
+            className="absolute inset-[-50%] animate-[spin_8s_linear_infinite] w-[200%] h-[200%] left-[-50%] top-[-50%]"
             style={{
-              backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, ${service.color} 160deg, transparent 180deg 320deg, ${service.color} 340deg, transparent 360deg)`
+              backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, ${service.color} 160deg, transparent 180deg 320deg, ${service.color} 340deg, transparent 360deg)`,
+              willChange: 'transform'
             }}
           />
         </div>
 
         {/* Inner Card Background & Content */}
-        <div className={`relative h-full bg-black/99 dark:bg-black md:bg-gray-300/40 md:dark:bg-white/10 backdrop-blur-xl rounded-[22px] p-7 md:p-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start z-10 overflow-hidden`}>
+        <div className={`relative h-full bg-black md:bg-gray-200 md:dark:bg-neutral-900 rounded-[22px] p-7 md:p-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start z-10 overflow-hidden`}>
 
           {/* Dynamic Internal Gradient/Glow */}
           <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-50 pointer-events-none`} />
@@ -102,8 +103,6 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
           {/* Top Highlight (Reflection) */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50" />
 
-          {/* Noise Texture */}
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
 
           {/* Content Container */}
           <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-16 w-full">
@@ -141,7 +140,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="mb-24 space-y-6">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter max-w-4xl text-foreground">
-            Você tem a ideia, <span className="text-brand"><br></br>a Voltics faz </span>
+            Você tem a ideia, <span className="text-brand"><br></br>a tzolkin faz </span>
             acontecer
           </h2>
           <p className="text-xl text-neutral-500 dark:text-neutral-200 max-w-2xl font-helvica leading-relaxed">
@@ -164,9 +163,10 @@ export function ServicesSection() {
             {/* Border Container */}
             <div className="relative rounded-full p-[2px] overflow-hidden">
               {/* Spinning Border Animation - Responsive Square */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] aspect-square animate-[spin_4s_linear_infinite]"
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400%] aspect-square animate-[spin_8s_linear_infinite]"
                 style={{
-                  backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, var(--brand) 160deg, transparent 180deg 320deg, var(--brand) 340deg, transparent 360deg)`
+                  backgroundImage: `conic-gradient(from 0deg, transparent 0 140deg, var(--brand) 160deg, transparent 180deg 320deg, var(--brand) 340deg, transparent 360deg)`,
+                  willChange: 'transform'
                 }}
               />
 
