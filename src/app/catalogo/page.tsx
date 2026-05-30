@@ -92,7 +92,7 @@ export default function CatalogoPage() {
         </p>
       </motion.div>
 
-      {/* O que a Voltics faz */}
+      {/* O que a tzolkin faz */}
       <section className="mb-28">
         <div className="text-center mb-16">
           <div className="w-12 h-[3px] bg-brand mx-auto mb-6" />

@@ -4,8 +4,8 @@ import { Footer } from '@/client/shared/ui/Footer';
 import React from 'react';
 
 export const metadata = {
-  title: "Comece seu Projeto | VOLTICS",
-  description: "Dê o próximo passo com a VOLTICS.",
+  title: "Comece seu Projeto | tzolkin",
+  description: "Dê o próximo passo com a tzolkin.",
 };
 
 export default function FormsLayout({ children }: { children: React.ReactNode }) {

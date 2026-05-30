@@ -88,21 +88,21 @@ export const projects: Project[] = [
     instagramPostUrl: "https://www.instagram.com/p/DStEhRBjquS/",
     gallery: ["/projects/haylander-contabilidade-instagram.png", "/projects/haylander-contabilidade-instagram.png"]
   },
-  {
-    name: "Hotel Metrópole",
-    logo: "/Logo Hotel Metrópole.png",
-    year: "2024",
-    decoration: "/bg-optimization.png",
-    rotation: "rotate-[25deg]",
-    bright: true,
-    invert: true,
-    category: 'case',
-    description: "Hotel tradicional oferecendo hospitalidade e conforto no centro da cidade.",
-    instagram: "https://www.instagram.com/hotelmetropolebh/",
-    instagramPostUrl: "https://www.instagram.com/p/DQbq_RKk6IH/",
-    location: "Belo Horizonte - MG",
-    gallery: ["/projects/hotel-metropole-instagram.png", "/projects/hotel-metropole-instagram.png"]
-  },
+  //{
+   // name: "Hotel Metrópole",
+   // logo: "/Logo Hotel Metrópole.png",
+   // year: "2024",
+   // decoration: "/bg-optimization.png",
+   // rotation: "rotate-[25deg]",
+   // bright: true,
+   // invert: true,
+   // category: 'case',
+   // description: "Hotel tradicional oferecendo hospitalidade e conforto no centro da cidade.",
+   // instagram: "https://www.instagram.com/hotelmetropolebh/",
+   // instagramPostUrl: "https://www.instagram.com/p/DQbq_RKk6IH/",
+   // location: "Belo Horizonte - MG",
+   // gallery: ["/projects/hotel-metropole-instagram.png", "/projects/hotel-metropole-instagram.png"]
+  //},
   {
     name: "MegaConcursos",
     logo: "/Logo Mega.png",

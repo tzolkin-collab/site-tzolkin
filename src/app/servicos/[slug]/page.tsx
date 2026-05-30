@@ -261,7 +261,7 @@ export default async function ServicePage(props: Params) {
                     )}
                     <div className="mt-10">
                       <Link href={`/forms?service=${encodeURIComponent(service.title)}`}>
-                        <button className="h-12 px-8 rounded-full bg-brand text-black hover:bg-foreground hover:text-foreground text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
+                        <button className="h-12 px-8 rounded-full bg-background bg-yellow-500 text-black hover:bg-foreground hover:text-foreground text-sm font-bold uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-3">
                           Iniciar Projeto
                           <ArrowRight className="w-4 h-4" />
                         </button>

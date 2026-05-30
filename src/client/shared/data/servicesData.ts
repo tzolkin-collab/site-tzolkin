@@ -64,7 +64,7 @@ export const servicesData: Record<string, ServiceData> = {
       { name: '4s', value1: 70 },
       { name: '3s (Média)', value1: 60 },
       { name: '2s', value1: 50 },
-      { name: '0.8s (Voltics)', value1: 40 },
+      { name: '0.8s (tzolkin)', value1: 40 },
     ],
     chartConfig: {
       type: 'funnel',
@@ -136,7 +136,7 @@ export const servicesData: Record<string, ServiceData> = {
             { name: '4s', value1: 70, description: 'Sua parcela de conversão começa a melhorar, mas boa parte do orçamento ainda evapora.' },
             { name: '3s', value1: 60, description: 'Tempo médio do mercado. O custo de aquisição estagna e limita a sua escala em leilões mais caros.' },
             { name: '2s', value1: 50, description: 'O carregamento entra em uma boa zona e o Google Ads já recompensa com Quality Score melhor.' },
-            { name: '0.8s (Voltics SSG)', value1: 40, description: 'Velocidade instantânea! CPA matematicamente cortado pela metade devido ao máximo de conversão na landing page.' },
+            { name: '0.8s (tzolkin SSG)', value1: 40, description: 'Velocidade instantânea! CPA matematicamente cortado pela metade devido ao máximo de conversão na landing page.' },
           ],
           config: {
             type: 'funnel',
@@ -267,7 +267,7 @@ export const servicesData: Record<string, ServiceData> = {
           config: {
             type: 'line',
             dataKey1: 'value2',
-            label1: 'Padrão Voltics (Incremental)',
+            label1: 'Padrão tzolkin (Incremental)',
             dataKey2: 'value1',
             label2: 'Agências Comuns (Cascata)',
           }
@@ -614,7 +614,7 @@ export const servicesData: Record<string, ServiceData> = {
     },
     mermaidString: `
       graph TD
-        A[Sistema do Cliente] --> B(API Pix Voltics)
+        A[Sistema do Cliente] --> B(API Pix tzolkin)
         B --> C[Gera QR Code Dinâmico]
         C --> D{Cliente Paga}
         D -->|Confirmação| E[Webhook Instantâneo]

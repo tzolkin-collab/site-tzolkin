@@ -44,7 +44,7 @@ export function PricingCard({ title, slug, dropPrice, price, paymentText, descri
           <span className="text-3xl font-black tracking-tight text-foreground">{price}</span>
         </div>
         {paymentText && (
-          <p className="inline-block px-1.5 py-0.5 bg-brand text-xs font-bold text-black uppercase tracking-wider">{paymentText}</p>
+          <p className="inline-block px-1.5 py-0.5 bg-foreground text-xs font-bold text-background uppercase tracking-wider">{paymentText}</p>
         )}
       </div>
 

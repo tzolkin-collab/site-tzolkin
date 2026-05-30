@@ -3,7 +3,7 @@ import { Footer } from '@/client/shared/ui/Footer';
 import React from 'react';
 
 export const metadata = {
-  title: 'Consultor Virtual | VOLTICS',
+  title: 'Consultor Virtual | tzolkin',
   description: 'Converse com nosso consultor virtual e descubra a solução digital perfeita para o seu negócio.',
 };
 

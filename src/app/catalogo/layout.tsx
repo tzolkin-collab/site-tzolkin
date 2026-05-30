@@ -3,7 +3,7 @@ import { Header } from '@/client/shared/ui/Header';
 import { Footer } from '@/client/shared/ui/Footer';
 
 export const metadata = {
-  title: "Personalizado | VOLTICS",
+  title: "Personalizado | tzolkin",
   description: "Conheça nossas capacidades, metodologia e todas as integrações que dominamos.",
 };
 

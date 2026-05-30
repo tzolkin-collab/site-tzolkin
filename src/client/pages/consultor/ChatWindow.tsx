@@ -8,7 +8,7 @@ import { ChatMessage, MessageData } from "./ChatMessage";
 import { sendMessage } from "./chatApi";
 
 const WELCOME_MESSAGE_CONTENT =
-  "Olá! 👋 Sou o consultor virtual da Voltics. Estou aqui para ajudar você a encontrar a solução digital perfeita para o seu negócio.\n\nMe conta: qual é o seu segmento e o que você está buscando?";
+  "Olá! 👋 Sou o consultor virtual da tzolkin. Estou aqui para ajudar você a encontrar a solução digital perfeita para o seu negócio.\n\nMe conta: qual é o seu segmento e o que você está buscando?";
 
 export function ChatWindow() {
   const { isChatOpen, closeChat } = useChat();
@@ -178,7 +178,7 @@ export function ChatWindow() {
               </div>
               <div className="flex-1">
                 <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-                  Consultor Voltics
+                  Consultor tzolkin
                   <Sparkles className="w-4 h-4 text-brand" />
                 </h2>
                 <p className="text-xs text-muted-foreground">
