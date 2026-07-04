@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Button } from '@/client/shared/ui/Button';
 import { Marquee } from '@/client/shared/ui/Marquee';
 import { LogoMarquee } from '@/client/shared/ui/LogoMarquee';
 import { Header } from '@/client/shared/ui/Header';
-import { ArrowRight, MoveRight, Quote } from 'lucide-react';
+import { ArrowRight, Quote } from 'lucide-react';
 import { projects } from '@/client/shared/data/projects';
 import { brands } from '@/client/shared/data/brands';
 
@@ -75,19 +75,19 @@ export function LandingPage() {
       <section className="flex-1 flex flex-col justify-center px-6 md:px-12 pt-32 pb-20 relative overflow-hidden bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <div className="overflow-hidden">
-            <h1 className="text-[12vw] leading-[0.85] font-bold tracking-tight text-foreground uppercase mix-blend-normal animate-[slideUp_0.6s_var(--ease-sophisticated)_forwards]">
+            <h1 className="text-[12vw] leading-[0.85] font-bold tracking-tight text-foreground dark:text-gray-0 uppercase mix-blend-normal animate-[slideUp_0.6s_var(--ease-sophisticated)_forwards]">
               Digital
             </h1>
           </div>
           <div className="overflow-hidden">
-            <h1 className="text-[12vw] leading-[0.85] font-bold tracking-tight text-brand uppercase mix-blend-normal pl-[10vw] animate-[slideUp_0.6s_var(--ease-sophisticated)_0.08s_forwards] opacity-0 [animation-fill-mode:forwards]">
+            <h1 className="text-[12vw] leading-[0.85] font-bold tracking-tight text-foreground dark:text-gray-0 uppercase mix-blend-normal pl-[10vw] animate-[slideUp_0.6s_var(--ease-sophisticated)_0.08s_forwards] opacity-0 fill-mode-fowards">
               Impact
             </h1>
           </div>
 
           <div className="mt-12 md:mt-18 flex flex-col md:flex-row justify-between items-end gap-8 animate-[fadeIn_0.6s_var(--ease-sophisticated)_0.3s_forwards] opacity-0">
-            <p className="max-w-md text-lg md:text-xl text-foreground dark:text-gray-0 leading-relaxed font-helvica">
-              Com a <span className="text-brand font-bold">metodologia</span> certa para alinhar <span className="text-brand font-bold">desenvolvimento</span>, <span className="text-brand font-bold">identidade</span> e <span className="text-brand font-bold">estratégia</span>.
+            <p className="max-w-md text-lg md:text-xl text-foreground dark:text-gray-0 dark:text-gray-0 leading-relaxed font-helvica">
+              Com a <span className="text-black dark:text-white">metodologia</span> certa para alinhar <span className="text-black dark:text-white">desenvolvimento</span>, <span className="text-black dark:text-white">identidade</span> e <span className="text-black dark:text-white">estratégia</span>.
             </p>
 
             <div className="flex gap-4">
@@ -108,26 +108,26 @@ export function LandingPage() {
       <section className="bg-background relative overflow-hidden md:py-0">
         <div className="w-full md:mb-24 flex flex-col lg:flex-row justify-between gap-12 lg:gap-0 animate-[fadeIn_0.6s_var(--ease-sophisticated)_0.3s_forwards] opacity-0">
           {/* Text Content */}
-          <div className="text-[0vw] md:text-[4vw] md:pt-15 md:border-t-[5px] md:border-r-[2px] md:rounded-tr-[1px] border-brand mx:pl-0 md:pr-4 md:pl-2 leading-[0.9] font-bold tracking-tight text-foreground uppercase mix-blend-normal">
-            <span className="text-brand">CASES</span><br />
+          <div className="text-[0vw] md:text-[4vw] md:pt-15 md:border-t-[5px] md:border-r-2 md:rounded-tr-[1px] border-brand mx:pl-0 md:pr-4 md:pl-2 leading-[0.9] font-bold tracking-tight text-foreground dark:text-gray-0 uppercase mix-blend-normal">
+            <span className="text-foreground dark:text-gray-0">CASES</span><br />
             DE<br />
-            <span className="text-brand">SUCESSO</span><br />
-            tz<span className="text-brand">olkin</span>
+            <span className="text-foreground dark:text-gray-0">SUCESSO</span><br />
+            tz<span className="text-foreground dark:text-gray-0">olkin</span>
           </div>
           <p className="max-w-md px-4 md:pr-2 pr-8 bg-white font-montserrat dark:bg-background md:bg-black md:pb-6 md:dark:bg-white md:pl-[20px] md:border-l-[5px] md:border-b-[5px] transition-colors duration-500 md:rounded-bl-[1px] md:border-brand text-xl md:text-2xl text-black dark:text-white md:text-white md:dark:text-black leading-relaxed font-helvica lg:text-left text-left">
             <Quote className="w-8 h-8 text-black dark:text-white mb-2 fill-white darK:fill-black" />
-            Se sua <span className="text-brand font-bold"> operação</span> não anda, não é por falta de esforço.
-            É por falta de <span className="text-brand font-bold">direção</span>.
-            Hoje ou você <span className="text-brand font-bold">vende on-line</span> ou enfrenta uma <span className="text-brand font-bold">competição desleal</span>.
+            Se sua <span className="text-black dark:text-white md:text-white md:dark:text-black"> operação</span> não anda, não é por falta de esforço.
+            É por falta de <span className="text-black dark:text-white md:text-white md:dark:text-black">direção</span>.
+            Hoje ou você <span className="text-black dark:text-white md:text-white md:dark:text-black">vende on-line</span> ou enfrenta uma <span className="text-black dark:text-white md:text-white md:dark:text-black">competição desleal</span>.
           </p>
 
           {/* Center Card */}
-          <div className="flex w-full bg-black dark:bg-white md:border-b-[5px] border-brand py-[45.80px] flex flex-col items-center justify-center group overflow-hidden transition-colors duration-500 mx-auto lg:mx-0 animate-[fadeIn_0.6s_var(--ease-sophisticated)_0.1s_forwards] opacity-0">
+          <div className="flex w-full bg-black dark:bg-white md:border-b-[5px] border-brand py-[45.80px] flex-col items-center justify-center group overflow-hidden transition-colors duration-500 mx-auto lg:mx-0 animate-[fadeIn_0.6s_var(--ease-sophisticated)_0.1s_forwards] opacity-0">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10 text-center space-y-6 px-6 md:px-12">
-              <Link href="/portfolio" className="group flex items-center justify-center text-white dark:text-black hover:text-brand font-bold text-xl md:text-xl leading-relaxed font-helvica transition-colors">
-                
+              <Link href="/portfolio" className="group flex items-center justify-center text-white hover:text-black dark:text-white md:text-white md:dark:text-black text-xl md:text-xl leading-relaxed font-helvica transition-colors">
+
                 <span>TZOLKIN</span>
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -148,19 +148,7 @@ export function LandingPage() {
           <PortfolioCarousel projects={regularProjects} />
 
 
-          {/* View More Button */}
-          {/*<div className="flex justify-center w-ful mt-20 bg-black text-white dark:bg-white dark:text-black">
-            <Link href="/portfolio">
-              <button
-                className="group relative flex items-center gap-4 px-8 py-4 text-xl font-medium overflow-hidden rounded-full hover:bg-foreground/5 transition-colors duration-300"
-              >
-                <span className="relative z-10">Ver todos cases</span>
-                <div className="relative w-12 h-12 flex items-center bg-brand justify-center rounded-full border-2 border-white/30 dark:border-white/90 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-300">
-                  <MoveRight className="w-5 h-5 transition-transform duration-300 text-black group-hover:translate-x-1" />
-                </div>
-              </button>
-            </Link>
-          </div>*/}
+
         </div>
       </section>
 

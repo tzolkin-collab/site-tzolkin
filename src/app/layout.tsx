@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Archivo, Montserrat, Geist } from "next/font/google";
 import { ThemeProvider } from "@/client/shared/providers/ThemeProvider";
 import { SmoothScrolling } from "@/client/shared/ui/SmoothScrolling";
-import { PromoBanner } from "@/client/shared/ui/PromoBanner";
 import { ScrollToTop } from "@/client/shared/ui/ScrollToTop";
 import { FloatingChatButton } from "@/client/shared/ui/FloatingChatButton";
 import { TrackingProvider } from "@/client/shared/ui/analytics/TrackingProvider";
@@ -11,7 +10,7 @@ import { ChatWindow } from "@/client/pages/consultor/ChatWindow";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -52,7 +51,6 @@ export default function RootLayout({
         >
           <TrackingProvider />
           <ScrollToTop />
-          <PromoBanner />
           <SmoothScrolling />
           <ChatProvider>
             <FloatingChatButton />

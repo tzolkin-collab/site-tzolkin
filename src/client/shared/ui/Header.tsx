@@ -4,7 +4,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ModeToggle } from './ModeToggle';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const menuItems = [
   { label: 'Work', href: '/#services' },
@@ -47,7 +46,7 @@ export function Header() {
       <header
         className={`fixed w-full z-50 transition-[top,padding,background-color,box-shadow,backdrop-filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled
           ? 'top-0 py-4 shadow-sm bg-background/80 backdrop-blur-md'
-          : 'top-10 bg-transparent py-6'
+          : 'top-0 bg-transparent py-6'
           }`}
       >
         <div className="px-6 md:px-12 max-w-[1400px] mx-auto flex justify-between items-center">

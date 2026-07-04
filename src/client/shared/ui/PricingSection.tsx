@@ -31,9 +31,19 @@ export function PricingSection() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+
+    const timer = setTimeout(() => {
+      onSelect();
+    }, 0);
+
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+
+    return () => {
+      clearTimeout(timer);
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
   }, [emblaApi, onSelect]);
 
   return (
@@ -72,7 +82,7 @@ export function PricingSection() {
           className="flex gap-6 pb-8 pt-4 cursor-grab active:cursor-grabbing touch-pan-y"
           style={{ willChange: 'transform' }}
         >
-          {pricingData.map((plan: PricingCardProps, index: number) => (
+          {pricingData.map((plan: PricingCardProps) => (
             <div key={plan.title}>
               <PricingCard {...plan} />
             </div>

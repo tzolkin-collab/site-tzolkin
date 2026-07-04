@@ -12,7 +12,7 @@ import { useTheme } from 'next-themes';
 
 
 interface ServiceChartProps {
-  data: any[];
+  data: Record<string, string | number | boolean>[];
   config: {
     type: 'area' | 'bar' | 'line' | 'pie' | 'funnel';
     dataKey1: string;
@@ -64,12 +64,28 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
   const brandColorAlt = config.color2 || colors.brandAlt;
   const brandColor3 = config.color3 || colors.text;
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  interface TooltipPayloadEntry {
+    color?: string;
+    payload?: {
+      fill?: string;
+      description?: string;
+    };
+    name?: string;
+    value?: number | string;
+  }
+
+  interface CustomTooltipProps {
+    active?: boolean;
+    payload?: TooltipPayloadEntry[];
+    label?: string;
+  }
+
+  const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-background border border-border p-3 rounded-lg shadow-xl text-sm max-w-[280px]">
           {label && <p className="font-bold mb-2 text-foreground">{label}</p>}
-          {payload.map((entry: any, index: number) => (
+          {payload.map((entry: TooltipPayloadEntry, index: number) => (
             <div key={index} className="flex flex-col gap-2">
               <p className="flex items-center gap-2" style={{ color: entry.color || entry.payload?.fill }}>
                 <span className="w-2 h-2 rounded-full min-w-[8px]" style={{ backgroundColor: entry.color || entry.payload?.fill }} />
@@ -91,7 +107,7 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
   const renderChart = () => {
     switch (config.type) {
       case 'funnel': {
-        const maxValue = Math.max(...data.map(d => d[config.dataKey1]));
+        const maxValue = Math.max(...data.map(d => Number(d[config.dataKey1])));
         const chartWidth = 500;
         const chartHeight = 350;
         const sliceHeight = chartHeight / data.length;
@@ -134,9 +150,9 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                 </defs>
 
                 {data.map((item, i) => {
-                  const value = item[config.dataKey1];
+                  const value = Number(item[config.dataKey1]);
                   // The last item's bottom width matches its top width (rectangle shape)
-                  const nextValue = i < data.length - 1 ? data[i + 1][config.dataKey1] : value;
+                  const nextValue = i < data.length - 1 ? Number(data[i + 1][config.dataKey1]) : value;
 
                   const topW = (value / maxValue) * chartWidth;
                   const botW = (nextValue / maxValue) * chartWidth;
@@ -188,7 +204,6 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
         );
       }
       case 'area':
-        const cfg = config as any;
         return (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
@@ -197,13 +212,13 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                   <stop offset="5%" stopColor={brandColor} stopOpacity={0.5} />
                   <stop offset="95%" stopColor={brandColor} stopOpacity={0} />
                 </linearGradient>
-                {cfg.dataKey2 && (
+                {config.dataKey2 && (
                   <linearGradient id="color2" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={brandColorAlt} stopOpacity={0.3} />
                     <stop offset="95%" stopColor={brandColorAlt} stopOpacity={0} />
                   </linearGradient>
                 )}
-                {cfg.dataKey3 && (
+                {config.dataKey3 && (
                   <linearGradient id="color3" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={brandColor3} stopOpacity={0.4} />
                     <stop offset="95%" stopColor={brandColor3} stopOpacity={0} />
@@ -220,20 +235,20 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                 tickFormatter={(value) => {
                   if (value >= 1000) return `${value / 1000}k`;
                   // Adicionando sufixo '%' se os valores do chart forem de 0 a 100
-                  const isPercentage = data.every(d => d[cfg.dataKey1] <= 100 && (cfg.dataKey3 ? d[cfg.dataKey3] <= 100 : true));
+                  const isPercentage = data.every(d => Number(d[config.dataKey1]) <= 100 && (config.dataKey3 ? Number(d[config.dataKey3]) <= 100 : true));
                   return isPercentage ? `${value}%` : value;
                 }}
               />
               <Tooltip content={<CustomTooltip />} />
 
-              <Area type="monotone" dataKey={cfg.dataKey1} name={cfg.label1} stroke={brandColor} strokeWidth={2} fillOpacity={1} fill="url(#color1)" activeDot={{ r: 6, fill: brandColor, strokeWidth: 0 }} />
+              <Area type="monotone" dataKey={config.dataKey1} name={config.label1} stroke={brandColor} strokeWidth={2} fillOpacity={1} fill="url(#color1)" activeDot={{ r: 6, fill: brandColor, strokeWidth: 0 }} />
 
-              {cfg.dataKey2 && (
-                <Area type="monotone" dataKey={cfg.dataKey2} name={cfg.label2} stroke={brandColorAlt} strokeWidth={2} fillOpacity={1} fill="url(#color2)" activeDot={{ r: 5, fill: brandColorAlt, strokeWidth: 0 }} />
+              {config.dataKey2 && (
+                <Area type="monotone" dataKey={config.dataKey2} name={config.label2} stroke={brandColorAlt} strokeWidth={2} fillOpacity={1} fill="url(#color2)" activeDot={{ r: 5, fill: brandColorAlt, strokeWidth: 0 }} />
               )}
 
-              {cfg.dataKey3 && (
-                <Area type="monotone" dataKey={cfg.dataKey3} name={cfg.label3} stroke={brandColor3} strokeWidth={2} fillOpacity={1} fill="url(#color3)" activeDot={{ r: 4, fill: brandColor3, strokeWidth: 0 }} />
+              {config.dataKey3 && (
+                <Area type="monotone" dataKey={config.dataKey3} name={config.label3} stroke={brandColor3} strokeWidth={2} fillOpacity={1} fill="url(#color3)" activeDot={{ r: 4, fill: brandColor3, strokeWidth: 0 }} />
               )}
             </AreaChart>
           </ResponsiveContainer>
@@ -267,7 +282,7 @@ export function ServiceChart({ data, config }: ServiceChartProps) {
                 innerRadius={60}
                 strokeWidth={2}
                 stroke="hsl(var(--background))"
-                label={({ name, value }) => `${value}%`}
+                label={({ value }) => `${value}%`}
                 labelLine={false}
               >
                 {data.map((_, index) => (

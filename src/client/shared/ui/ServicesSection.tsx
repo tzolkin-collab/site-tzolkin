@@ -1,6 +1,6 @@
 'use client';
 
-import { Globe, Zap, PenTool, Layers } from 'lucide-react';
+import { Globe, Zap, PenTool, Layers, LucideIcon } from 'lucide-react';
 import { useCallback } from 'react';
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 
@@ -45,7 +45,17 @@ const services = [
   }
 ];
 
-function ServiceCard({ service, index }: { service: any, index: number }) {
+interface ServiceItem {
+  icon: LucideIcon;
+  title: string;
+  subtitle: React.ReactNode;
+  description: React.ReactNode;
+  gradient: string;
+  iconGradient: string;
+  color: string;
+}
+
+function ServiceCard({ service, index }: { service: ServiceItem, index: number }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
