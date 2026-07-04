@@ -26,11 +26,36 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "tzolkin",
-  description: "Sofisticação em cada linha.",
+  title: "Tzolkin | Sofisticação em cada linha",
+  description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível. Transforme a presença digital da sua empresa com a Tzolkin.",
   icons: {
-    icon: '/logotzolkin.jpg',
+    icon: '/logotzolkin.svg',
+    shortcut: '/logotzolkin.svg',
+    apple: '/logotzolkin.svg',
   },
+  openGraph: {
+    title: "Tzolkin | Sofisticação em cada linha",
+    description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível.",
+    siteName: "Tzolkin",
+    images: [
+      {
+        url: "/logotzolkin.svg",
+        width: 800,
+        height: 600,
+        alt: "Tzolkin Logo"
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tzolkin | Sofisticação em cada linha",
+    description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível.",
+    images: ["/logotzolkin.svg"],
+  },
+  keywords: ["desenvolvimento web", "aplicativos", "software", "design", "tzolkin", "tecnologia"],
+  authors: [{ name: "Tzolkin" }],
 };
 
 export default function RootLayout({
