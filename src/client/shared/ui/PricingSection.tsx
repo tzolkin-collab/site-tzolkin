@@ -62,16 +62,16 @@ export function PricingSection() {
           transition={{ duration: 0.6 }}
           className="text-center md:text-left max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/5 mb-6 text-sm font-medium tracking-wider uppercase text-brand">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-foreground/5 mb-6 text-sm font-medium tracking-wider uppercase text-brand">
             <Sparkles size={14} />
-            <span>Transparência tzolkin</span>
+            <span>Transparência TZOLKIN</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-foreground">
-            Produtos Exclusivos,<br /> <span className="text-brand">valores claros.</span>
+            Produtos de software,<br /> <span className="text-brand">valores claros.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Soluções Rápidas
+            Soluções white-label e personalizadas — do site institucional ao sistema de mensalidades. Escolha o formato: ele chega com a sua marca, as suas regras e escopo fechado. Preço na página, sem surpresa na fatura.
           </p>
         </motion.div>
       </div>
@@ -95,13 +95,13 @@ export function PricingSection() {
             <Link href="/catalogo" className="absolute inset-0 z-10" aria-label="Ver soluções personalizadas" />
             <Sparkles className="w-12 h-12 mb-6 opacity-70 group-hover:scale-110 transition-transform duration-300 pointer-events-none" />
             <h3 className="text-3xl font-black mb-4 uppercase tracking-tighter leading-none pointer-events-none">
-              Soluções <br /> Personalizadas
+              Soluções <br /> personalizadas
             </h3>
             <p className="font-medium opacity-80 mb-8 px-4 pointer-events-none">
-              Precisa de infraestrutura, automação de dados ou branding completo?
+              Infraestrutura, automação de dados ou identidade de marca completa — desenhadas para a sua operação.
             </p>
             <div className="flex items-center gap-2 font-bold uppercase tracking-widest text-sm pointer-events-none">
-              Ver Mais <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Ver soluções personalizadas <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export function PricingSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-foreground text-background rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10"
+          className="bg-foreground text-background rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 border border-background/10"
         >
           <div className="max-w-xl text-center md:text-left">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">Funções sob demanda</h3>
@@ -142,9 +142,9 @@ export function PricingSection() {
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto mt-6 md:mt-0">
-            <Link href="/forms">
-              <Button size="lg" className="w-full md:w-auto h-16 px-10 rounded-full bg-brand text-black hover:bg-white hover:text-black text-lg tracking-wide uppercase font-bold flex items-center justify-center gap-3">
-                Solicitar Orçamento
+            <Link href="/forms?interesse=personalizado">
+              <Button size="lg" className="w-full md:w-auto h-16 px-10 rounded-full bg-brand text-brand-foreground hover:bg-brand/90 text-lg tracking-wide uppercase font-bold flex items-center justify-center gap-3">
+                Solicitar orçamento
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>

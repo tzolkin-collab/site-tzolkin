@@ -22,6 +22,22 @@ interface AntigravityProps {
   fieldStrength?: number;
 }
 
+/**
+ * PRNG determinístico (mulberry32). Substitui Math.random() na geração das
+ * partículas: mantém a função pura durante o render (react-hooks/purity),
+ * evita regeneração visual em re-renders e elimina mismatch de hidratação.
+ */
+const mulberry32 = (seed: number) => {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
 const AntigravityInner: React.FC<AntigravityProps> = ({
   count = 300,
   magnetRadius = 10,
@@ -53,8 +69,11 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
         // Since Oklch format (oklch(0.145 0 0)) is not directly supported by ThreeJS Color without an updated parser,
         // we'll attempt to map theme colors explicitly as a quick fallback if it's the new complex string.
         if (varName === '--foreground') val = document.documentElement.classList.contains('dark') ? '#000000' : '#ffffff';
-        if (varName === '--brand') val = '#40bb21';
+        if (varName === '--brand') val = document.documentElement.classList.contains('dark') ? '#8670ff' : '#4a21bb';
         if (varName === '--background') val = document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000';
+        // Sincronização legítima com sistema externo (computed style → Three.js,
+        // que não parseia oklch). setState intencional ao montar/trocar a prop.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setResolvedColor(val);
       }
     } else {
@@ -70,20 +89,21 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
     const temp = [];
     const width = viewport.width || 100;
     const height = viewport.height || 100;
+    const rand = mulberry32(42);
 
     for (let i = 0; i < count; i++) {
-      const t = Math.random() * 100;
-      const factor = 20 + Math.random() * 100;
-      const speed = 0.01 + Math.random() / 200;
-      const xFactor = -50 + Math.random() * 100;
-      const yFactor = -50 + Math.random() * 100;
-      const zFactor = -50 + Math.random() * 100;
+      const t = rand() * 100;
+      const factor = 20 + rand() * 100;
+      const speed = 0.01 + rand() / 200;
+      const xFactor = -50 + rand() * 100;
+      const yFactor = -50 + rand() * 100;
+      const zFactor = -50 + rand() * 100;
 
-      const x = (Math.random() - 0.5) * width;
-      const y = (Math.random() - 0.5) * height;
-      const z = (Math.random() - 0.5) * 20;
+      const x = (rand() - 0.5) * width;
+      const y = (rand() - 0.5) * height;
+      const z = (rand() - 0.5) * 20;
 
-      const randomRadiusOffset = (Math.random() - 0.5) * 2;
+      const randomRadiusOffset = (rand() - 0.5) * 2;
 
       temp.push({
         t,
@@ -139,7 +159,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
     const globalRotation = state.clock.getElapsedTime() * rotationSpeed;
 
     particles.forEach((particle, i) => {
-      let { speed, mx, my, mz, cz, randomRadiusOffset } = particle;
+      const { speed, mx, my, mz, cz, randomRadiusOffset } = particle;
 
       const t = particle.t += speed / 2;
 
@@ -151,7 +171,7 @@ const AntigravityInner: React.FC<AntigravityProps> = ({
       const dy = my - projectedTargetY;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
-      let targetPos = { x: mx, y: my, z: mz * depthFactor };
+      const targetPos = { x: mx, y: my, z: mz * depthFactor };
 
       if (dist < magnetRadius) {
         const angle = Math.atan2(dy, dx) + globalRotation;
@@ -210,6 +230,9 @@ export const Antigravity: React.FC<AntigravityProps> = props => {
   const [domBody, setDomBody] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Padrão legítimo de mount: document.body só existe no client e o Canvas
+    // precisa dele como eventSource. O setState é intencional (1x por mount).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDomBody(document.body);
   }, []);
 

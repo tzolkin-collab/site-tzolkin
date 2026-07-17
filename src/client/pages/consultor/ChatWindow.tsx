@@ -6,9 +6,10 @@ import { useChat } from "@/client/shared/providers/ChatProvider";
 import { Send, Bot, Sparkles, Loader2, X } from "lucide-react";
 import { ChatMessage, MessageData } from "./ChatMessage";
 import { sendMessage } from "./chatApi";
+import { useLockBody } from "@/hooks/useLockBody";
 
 const WELCOME_MESSAGE_CONTENT =
-  "Olá! 👋 Sou o consultor virtual da tzolkin. Estou aqui para ajudar você a encontrar a solução digital perfeita para o seu negócio.\n\nMe conta: qual é o seu segmento e o que você está buscando?";
+  "Olá! 👋 Sou o consultor virtual da TZOLKIN. Posso ajudar você a encontrar a solução certa entre as nossas frentes: consultoria, produtos de software sob medida e ferramentas próprias.\n\nMe conte: qual é o seu segmento e o que você está buscando?";
 
 export function ChatWindow() {
   const { isChatOpen, closeChat } = useChat();
@@ -41,18 +42,9 @@ export function ChatWindow() {
     scrollToBottom();
   }, [messages, scrollToBottom]);
 
-  // Lock body scroll when chat is open (especially useful for full-screen mobile view)
-  useEffect(() => {
-    if (isChatOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isChatOpen]);
+  // Trava o scroll do body enquanto o chat está aberto
+  // (essencial na visão full-screen do mobile)
+  useLockBody(isChatOpen);
 
   // Auto-resize textarea
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -128,7 +120,7 @@ export function ChatWindow() {
         id: `error-${Date.now()}`,
         role: "assistant",
         content:
-          "Desculpe, houve um erro ao processar sua mensagem. Por favor, tente novamente.",
+          "Algo não saiu como deveria — sua mensagem não foi perdida. Tente novamente em instantes.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMsg]);
@@ -146,10 +138,10 @@ export function ChatWindow() {
 
   const suggestions = [
     "Qual site devo escolher?",
-    "Preciso de um sistema Personalizado",
-    "Preciso de um site para minha empresa",
+    "Preciso de um sistema personalizado",
+    "Quero um site para minha empresa",
     "Quero montar uma loja online",
-    "Preciso de um cardápio digital",
+    "Como funciona um cardápio digital?",
     "Quero integrar pagamentos Pix",
   ];
 
@@ -178,11 +170,11 @@ export function ChatWindow() {
               </div>
               <div className="flex-1">
                 <h2 className="text-lg font-bold text-foreground flex items-center gap-2">
-                  Consultor tzolkin
+                  Consultor TZOLKIN
                   <Sparkles className="w-4 h-4 text-brand" />
                 </h2>
                 <p className="text-xs text-muted-foreground">
-                  Powered by AI • Sempre disponível
+                  Inteligência artificial · sempre disponível
                 </p>
               </div>
               <button
@@ -267,11 +259,6 @@ export function ChatWindow() {
                   <Send className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-[10px] text-muted-foreground/60 text-center mt-2">
-                Powered by{" "}
-                <span className="font-bold text-foreground">Google Gemini</span>{" "}
-                • Suas informações são tratadas com segurança
-              </p>
             </div>
           </div>
         </motion.div>

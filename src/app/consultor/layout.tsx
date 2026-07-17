@@ -3,8 +3,8 @@ import { Footer } from '@/client/shared/ui/Footer';
 import React from 'react';
 
 export const metadata = {
-  title: 'Consultor Virtual | tzolkin',
-  description: 'Converse com nosso consultor virtual e descubra a solução digital perfeita para o seu negócio.',
+  title: 'Consultor virtual',
+  description: 'Converse com o consultor virtual da TZOLKIN e descubra a solução de software certa para o seu negócio.',
 };
 
 export default function ConsultorLayout({ children }: { children: React.ReactNode }) {

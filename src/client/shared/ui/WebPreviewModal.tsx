@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useLockBody } from '@/hooks/useLockBody';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2, ExternalLink, AlertCircle } from 'lucide-react';
 
@@ -38,17 +39,8 @@ export function WebPreviewModal({ isOpen, onClose, url, title, type }: WebPrevie
   
   // Alternative: use a key on the AnimatePresence children to force remount of content
   
-  // Lock body scroll when modal is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
+  // Trava o scroll do body enquanto o modal está aberto
+  useLockBody(isOpen);
 
   const renderContent = () => {
     if (type === 'instagram') {
@@ -107,7 +99,7 @@ export function WebPreviewModal({ isOpen, onClose, url, title, type }: WebPrevie
           <iframe
             src={url}
             className="w-full h-full border-0"
-            title={`Preview of ${title}`}
+            title={`Pré-visualização de ${title}`}
             sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
             onLoad={() => setIsLoading(false)}
             onError={() => {

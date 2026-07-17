@@ -6,14 +6,14 @@ export const pricingData: PricingCardProps[] = [
     slug: 'landing-pages-de-conversao',
     dropPrice: 'R$ 1.925',
     price: 'R$ 1.350',
-    paymentText: 'Em até 3x no cartão ou PIX R$ 1050 à vista',
+    paymentText: 'Em até 3x no cartão ou Pix R$ 1.050 à vista',
     description: 'Páginas exclusivas desenhadas para altíssima conversão de leads vindos de tráfego pago.',
     features: [
       'Hospedagem GRATUITA',
       'Entrega em até 3 dias úteis',
       'Hospedagem de VSL modelo VTURB nativa',
       'Página de obrigado',
-      'Formulario Personalizado | Checkout Transparente',
+      'Formulário Personalizado | Checkout Transparente',
       'Copywriting Direto e Persuasivo',
       'Design Mobile-First Exclusivo',
       'Carregamento Super Otimizado (<1s)',
@@ -33,13 +33,13 @@ export const pricingData: PricingCardProps[] = [
       'Arquitetura Visual Premium e Original',
       'Multi-páginas (Sobre, Serviços, Portfólio)',
       'Painel para Gestão de Conteúdo (CMS)',
-      'Formulario Personalizado | Checkout Transparente',
+      'Formulário inteligente com integração ao seu CRM',
       'Otimização SEO On-page para o Google',
       'Bônus: Tagueamento (GA4 e Pixels de Base)'
     ]
   },
   {
-    title: 'E-commerces Globais',
+    title: 'E-commerce global',
     slug: 'e-commerces-globais',
     dropPrice: 'R$ 10.000',
     price: 'R$ 8.000',
@@ -80,7 +80,7 @@ export const pricingData: PricingCardProps[] = [
     slug: 'cardapios-virtuais',
     dropPrice: 'R$ 2.800',
     price: 'R$ 2.400',
-    paymentText: 'Em até 3x no cartão ou PIX R$ 1100 à vista',
+    paymentText: 'Em até 3x no cartão ou Pix R$ 1.900 à vista',
     description: 'Cardápio digital interativo com QR Code, ideal para restaurantes, bares e deliveries que querem modernizar o atendimento.',
     features: [
       'Interface PWA (Acesso Instantâneo sem Download)',
@@ -99,6 +99,16 @@ export const pricingData: PricingCardProps[] = [
     price: 'R$ 2.500',
     paymentText: 'Entrada de 50% + 50% na entrega',
     description: 'Integração completa com Stripe Connect para aceitar pagamentos em múltiplas moedas e escalar sua operação internacionalmente.',
+    maintenance: {
+      percent: '6%',
+      tagline: 'Assistência contínua da equipe técnica em tudo que envolve pagamentos.',
+      includes: [
+        'Assistência técnica para tudo que envolve pagamentos',
+        'Rastreio e monitoramento de transações',
+        'Suporte por e-mail da equipe técnica',
+        'Gestão de webhooks e eventos'
+      ]
+    },
     features: [
       'Infraestrutura Stripe Connect (Alcance Global)',
       'Checkout Transparente em 135+ Moedas',
@@ -116,6 +126,16 @@ export const pricingData: PricingCardProps[] = [
     price: 'R$ 1.500',
     paymentText: 'Em até 3x no cartão de crédito',
     description: 'Fuja das taxas em território nacional. Integração direta com API Pix para cobranças instantâneas, QR Codes dinâmicos e confirmação automática de pagamento.',
+    maintenance: {
+      percent: '6%',
+      tagline: 'Assistência contínua da equipe técnica em tudo que envolve pagamentos.',
+      includes: [
+        'Assistência técnica para tudo que envolve pagamentos',
+        'Rastreio e monitoramento de transações',
+        'Suporte por e-mail da equipe técnica',
+        'Gestão de webhooks e eventos'
+      ]
+    },
     features: [
       'Taxa por Transação ZERO (Custo Operacional Mínimo)',
       'Geração de QR Codes Dinâmicos em Tempo Real',
@@ -133,6 +153,16 @@ export const pricingData: PricingCardProps[] = [
     price: 'R$ 3.000',
     paymentText: 'Entrada de 50% + 50% na entrega',
     description: 'Plataforma completa de cobranças recorrentes para barbearias, academias, cursos, SaaS e qualquer negócio com assinaturas.',
+    maintenance: {
+      percent: '6%',
+      tagline: 'Assistência contínua da equipe técnica em tudo que envolve pagamentos.',
+      includes: [
+        'Assistência técnica para tudo que envolve pagamentos',
+        'Rastreio e monitoramento de transações',
+        'Suporte por e-mail da equipe técnica',
+        'Gestão de webhooks e eventos'
+      ]
+    },
     features: [
       'Motor de Recorrência Multi-método (Cartão/Pix/Boleto)',
       'Régua de Cobrança Automatizada (Email/WhatsApp)',

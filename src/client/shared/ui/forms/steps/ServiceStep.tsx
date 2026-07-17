@@ -12,13 +12,24 @@ import { pricingData } from '@/client/shared/data/pricingData';
 export function ServiceStep() {
   const searchParams = useSearchParams();
   const serviceFromQuery = searchParams.get('service');
-  
+  const interesseFromQuery = searchParams.get('interesse');
+
+  // Pré-seleção de acordo com a origem do lead (CTAs de pricing, catálogo e páginas "em breve")
+  const INTERESSE_PRESETS: Record<string, { service: string; message?: string }> = {
+    personalizado: { service: 'Solução Personalizada' },
+    consultoria: { service: 'Sob Demanda' },
+    ferramentas: { service: 'Ferramentas TZOLKIN', message: 'Quero saber mais sobre as ferramentas TZOLKIN (SaaS, PWAs e NaaS).' },
+    educacional: { service: 'Educacional TZOLKIN', message: 'Quero ser avisado quando o educacional TZOLKIN abrir.' },
+  };
+  const preset = interesseFromQuery ? INTERESSE_PRESETS[interesseFromQuery] : undefined;
+
   const { formData, updateData, resetForm } = useFormContext();
-  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<FormData>({ 
+  const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<FormData>({
     defaultValues: {
       ...formData,
-      service: serviceFromQuery || formData.service 
-    } 
+      service: serviceFromQuery || preset?.service || formData.service,
+      message: formData.message || preset?.message
+    }
   });
   const router = useRouter();
   const selectedService = watch('service');
@@ -31,11 +42,13 @@ export function ServiceStep() {
 
     const finalData = { ...formData, ...data };
 
-    // Simulate API submission
-    console.log("Submitting forms data:", finalData);
+    // Simulate API submission (log apenas fora de produção para não vazar dados do formulário)
+    if (process.env.NODE_ENV !== 'production') {
+      console.log("Submitting forms data:", finalData);
+    }
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    alert('Mensagem enviada com sucesso! Nossa equipe entrará em contato.');
+    alert('Mensagem enviada com sucesso! Nossa equipe responde em até 1 dia útil.');
     resetForm();
     router.push('/');
   };
@@ -53,7 +66,7 @@ export function ServiceStep() {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-widest text-brand mb-1">Passo 4 de 4</h2>
-          <h3 className="text-3xl font-bold text-foreground">Objetivo do Projeto</h3>
+          <h3 className="text-3xl font-bold text-foreground">Objetivo do projeto</h3>
         </div>
       </div>
 
@@ -68,6 +81,8 @@ export function ServiceStep() {
             {pricingData.map((plan) => (
               <option key={plan.title} value={plan.title}>{plan.title} (A Partir de {plan.price})</option>
             ))}
+            <option value="Ferramentas TZOLKIN">Ferramentas TZOLKIN (SaaS, PWAs e NaaS)</option>
+            <option value="Educacional TZOLKIN">Educacional TZOLKIN</option>
             <option value="Sob Demanda">Projeto Customizado / Sob Demanda</option>
             <option value="Outro">Ainda não tenho certeza</option>
           </select>
@@ -76,7 +91,7 @@ export function ServiceStep() {
 
         <div className="group/field">
           <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">
-            Detalhes do Projeto {selectedService === 'Sob Demanda' ? <span className="text-red-500">(Obrigatório)</span> : '(Opcional)'}
+            Detalhes do projeto {selectedService === 'Sob Demanda' ? <span className="text-red-500">(obrigatório)</span> : '(opcional)'}
           </label>
           <textarea
             {...register('message', {

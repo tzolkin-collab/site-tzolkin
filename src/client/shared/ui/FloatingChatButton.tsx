@@ -31,10 +31,17 @@ export function FloatingChatButton() {
         >
           <Image
             src="/logotzolkin.svg"
-            alt="tzolkin Logo"
+            alt="TZOLKIN Logo"
             width={64}
             height={64}
-            className="rounded-full object-contain dark:invert"
+            className="rounded-full object-contain dark:hidden"
+          />
+          <Image
+            src="/logotzolkin-white.svg"
+            alt="TZOLKIN Logo"
+            width={64}
+            height={64}
+            className="rounded-full object-contain hidden dark:block"
           />
         </button>
       </div>

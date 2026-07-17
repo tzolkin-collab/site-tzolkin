@@ -15,14 +15,14 @@ export function Button({
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none cursor-pointer active:scale-95";
 
   const variants = {
-    primary: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus:ring-primary",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:shadow-lg hover:shadow-secondary/20 focus:ring-secondary",
-    outline: "border-2 border-border bg-transparent hover:bg-accent hover:text-accent-foreground hover:border-accent",
-    ghost: "hover:bg-accent/10 hover:text-accent",
+    primary: "bg-primary/90 text-primary-foreground hover:bg-primary hover:text-white dark:hover:text-black hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:shadow-lg hover:shadow-secondary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    outline: "border-2 border-border bg-transparent hover:bg-accent hover:text-accent-foreground hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    ghost: "hover:bg-accent/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   };
 
   const sizes = {
-    sm: "h-9 text-base",
+    sm: "h-9 px-4 text-sm",
     md: "h-11 px-6 text-base",
     lg: "h-14 px-8 text-lg",
   };

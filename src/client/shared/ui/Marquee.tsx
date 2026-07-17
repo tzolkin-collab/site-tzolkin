@@ -1,38 +1,44 @@
-'use client'
 import React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import AutoScroll from 'embla-carousel-auto-scroll'
 
 interface MarqueeProps {
   items: string[]
-  speed?: number // pixels per frame, approx.
+  speed?: number
 }
 
+/**
+ * Carrossel infinito de palavras.
+ *
+ * Implementado com animação CSS pura (keyframes `marquee` do globals.css),
+ * o mesmo padrão do LogoMarquee. Sem Embla/JS/rAF: não trava em refresh,
+ * troca de aba ou interação — o navegador gerencia a animação.
+ *
+ * O track renderiza 4 conjuntos; o keyframe desloca -50% (= 2 conjuntos),
+ * um múltiplo exato do conteúdo, então o loop é contínuo e sem salto.
+ * Pausa no hover via `.animate-marquee:hover` (padrão do site).
+ */
 export function Marquee({ items, speed = 1 }: MarqueeProps) {
-  const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
-    AutoScroll({ speed, stopOnInteraction: false, stopOnMouseEnter: false })
-  ])
+  const duration = 50 / speed;
+
+  const renderSet = (keyPrefix: string) =>
+    items.map((item, index) => (
+      <div
+        key={`${keyPrefix}-${index}`}
+        className="flex-[0_0_auto] min-w-0 mr-12 text-background font-bold text-sm tracking-[0.2em] uppercase whitespace-nowrap"
+      >
+        {item}
+      </div>
+    ));
 
   return (
-    <div className="w-full overflow-hidden bg-foreground py-4 transition-colors duration-500" ref={emblaRef}>
-      <div className="flex touch-pan-y">
-        {items.map((item, index) => (
-          <div 
-            key={index} 
-            className="flex-[0_0_auto] min-w-0 mr-12 text-background font-bold text-sm tracking-[0.2em] uppercase whitespace-nowrap"
-          >
-            {item}
-          </div>
-        ))}
-        {/* Duplicate items to ensure smooth infinite loop if items are few, though embla handles loop well */}
-        {items.map((item, index) => (
-           <div 
-             key={`dup-${index}`} 
-             className="flex-[0_0_auto] min-w-0 mr-12 text-background font-bold text-sm tracking-[0.2em] uppercase whitespace-nowrap"
-           >
-             {item}
-           </div>
-         ))}
+    <div className="w-full overflow-hidden bg-foreground py-4 transition-colors duration-500">
+      <div
+        className="flex animate-marquee touch-pan-y"
+        style={{ '--marquee-duration': `${duration}s` } as React.CSSProperties}
+      >
+        {renderSet('a')}
+        {renderSet('b')}
+        {renderSet('c')}
+        {renderSet('d')}
       </div>
     </div>
   )

@@ -20,9 +20,13 @@ export function CompanyStep() {
       companySize: data.companySize,
       employees: data.employees
     });
-    const service = searchParams.get('service');
-    const query = service ? `?service=${encodeURIComponent(service)}` : '';
-    router.push(`/forms/redes${query}`);
+    const query = new URLSearchParams();
+    ['service', 'interesse'].forEach((key) => {
+      const value = searchParams.get(key);
+      if (value) query.set(key, value);
+    });
+    const qs = query.toString();
+    router.push(`/forms/redes${qs ? `?${qs}` : ''}`);
   };
 
   return (
@@ -38,13 +42,13 @@ export function CompanyStep() {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-widest text-brand mb-1">Passo 2 de 4</h2>
-          <h3 className="text-3xl font-bold text-foreground">Sobre sua Empresa</h3>
+          <h3 className="text-3xl font-bold text-foreground">Sobre sua empresa</h3>
         </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <div className="group/field">
-          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Nome da Empresa</label>
+          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Nome da empresa</label>
           <input
             {...register('companyName', { required: 'Nome da empresa é obrigatório' })}
             className="w-full bg-foreground/5 px-4 rounded-xl border border-border focus:border-brand outline-none py-4 text-xl transition-all placeholder:text-foreground/30 focus:bg-background"
@@ -55,21 +59,21 @@ export function CompanyStep() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="group/field">
-            <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Faturamento Opcional</label>
+            <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Faturamento (opcional)</label>
             <select
               {...register('companySize')}
               className="w-full bg-foreground/5 px-4 rounded-xl border border-border focus:border-brand outline-none py-4 text-xl transition-all text-foreground focus:bg-background"
             >
               <option value="" disabled>Selecione uma faixa</option>
               <option value="zero">Ainda não faturo</option>
-              <option value="10k-50k">R$ 10k - R$ 50k / mês</option>
-              <option value="50k-100k">R$ 50k - R$ 100k / mês</option>
-              <option value="100k+">Mais de R$ 100k / mês</option>
+              <option value="10k-50k">R$ 10 mil a R$ 50 mil por mês</option>
+              <option value="50k-100k">R$ 50 mil a R$ 100 mil por mês</option>
+              <option value="100k+">Acima de R$ 100 mil por mês</option>
             </select>
           </div>
 
           <div className="group/field">
-            <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Equipe Comercial</label>
+            <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Equipe comercial</label>
             <select
               {...register('employees')}
               className="w-full bg-foreground/5 px-4 rounded-xl border border-border focus:border-brand outline-none py-4 text-xl transition-all text-foreground focus:bg-background"
@@ -87,9 +91,13 @@ export function CompanyStep() {
           <button
             type="button"
             onClick={() => {
-              const service = searchParams.get('service');
-              const query = service ? `?service=${encodeURIComponent(service)}` : '';
-              router.push(`/forms/contato${query}`);
+              const query = new URLSearchParams();
+              ['service', 'interesse'].forEach((key) => {
+                const value = searchParams.get(key);
+                if (value) query.set(key, value);
+              });
+              const qs = query.toString();
+              router.push(`/forms/contato${qs ? `?${qs}` : ''}`);
             }}
             className="text-muted-foreground hover:text-foreground font-bold tracking-widest uppercase text-sm flex items-center gap-2 transition-colors"
           >

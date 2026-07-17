@@ -18,7 +18,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: "KidStok",
-    logo: "/Logo KidStok.png",
+    logo: "/logo-kidstok.png",
     year: "2024",
     decoration: "/bg-ecommerce.png",
     rotation: "rotate-[37deg]",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
   },
   {
     name: "Instituto Vale",
-    logo: "/Logo Vale.png",
+    logo: "/logo-vale.png",
     year: "2024",
     decoration: "/bg-institutional.png",
     rotation: "rotate-[21deg]",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     name: "Butikim da Kelly",
-    logo: "/Logo Butikim da Kelly.png",
+    logo: "/logo-butikim-da-kelly.png",
     year: "2024",
     decoration: "/bg-optimization.png",
     rotation: "rotate-[30deg]",
@@ -64,7 +64,7 @@ export const projects: Project[] = [
   },
   {
     name: "Embale+",
-    logo: "/Logo Embale+.png",
+    logo: "/logo-embale.png",
     year: "2024",
     decoration: "/bg-ecommerce.png",
     rotation: "rotate-[45deg]",
@@ -72,11 +72,11 @@ export const projects: Project[] = [
     invert: false,
     category: 'partnership',
     description: "Distribuidora de embalagens focada em soluções para delivery e embalagens em geral.",
-    gallery: ["/Logo Embale+.png", "/Logo Embale+.png", "/Logo Embale+.png"]
+    gallery: ["/logo-embale.png", "/logo-embale.png", "/logo-embale.png"]
   },
   {
     name: "Haylander",
-    logo: "/Logo Haylander.png",
+    logo: "/logo-haylander.png",
     year: "2024",
     decoration: "/bg-institutional.png",
     rotation: "rotate-[15deg]",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
   },
   //{
    // name: "Hotel Metrópole",
-   // logo: "/Logo Hotel Metrópole.png",
+   // logo: "/logo-hotel-metropole.png",
    // year: "2024",
    // decoration: "/bg-optimization.png",
    // rotation: "rotate-[25deg]",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
   //},
   {
     name: "MegaConcursos",
-    logo: "/Logo Mega.png",
+    logo: "/logo-mega.png",
     year: "2024",
     decoration: "/bg-ecommerce.png",
     rotation: "rotate-[10deg]",
@@ -113,11 +113,11 @@ export const projects: Project[] = [
     invert: false,
     category: 'partnership',
     description: "Plataforma especializada em preparação para concursos públicos.",
-    gallery: ["/Logo Mega.png", "/Logo Mega.png", "/Logo Mega.png"]
+    gallery: ["/logo-mega.png", "/logo-mega.png", "/logo-mega.png"]
   },
   {
     name: "Motel Queen",
-    logo: "/Logo Motel Queen.png",
+    logo: "/logo-motel-queen.png",
     year: "2024",
     decoration: "/bg-institutional.png",
     rotation: "rotate-[40deg]",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
   },
   {
     name: "Mr. Fit",
-    logo: "/Logo Mr. Fit.png",
+    logo: "/logo-mr-fit.png",
     year: "2024",
     decoration: "/bg-optimization.png",
     rotation: "rotate-[5deg]",
@@ -147,7 +147,7 @@ export const projects: Project[] = [
   },
   {
     name: "Rei Da Fruta",
-    logo: "/Logo Rei Da Fruta.png",
+    logo: "/logo-rei-da-fruta.png",
     year: "2024",
     decoration: "/bg-ecommerce.png",
     rotation: "rotate-[50deg]",
@@ -157,11 +157,11 @@ export const projects: Project[] = [
     description: "Hortifruti que fornece frutas frescas e selecionadas com qualidade garantida.",
     instagram: "https://www.instagram.com/rei_dafruta/",
     instagramPostUrl: "https://www.instagram.com/p/C23Jzw9Pcmk/", // Placeholder: Founder's post ID used as temporary
-    gallery: ["/Logo Rei Da Fruta.png", "/Logo Rei Da Fruta.png", "/Logo Rei Da Fruta.png"]
+    gallery: ["/logo-rei-da-fruta.png", "/logo-rei-da-fruta.png", "/logo-rei-da-fruta.png"]
   },
   {
     name: "Zander",
-    logo: "/Logo Zander.png",
+    logo: "/logo-zander.png",
     year: "2024",
     decoration: "/bg-institutional.png",
     rotation: "rotate-[12deg]",

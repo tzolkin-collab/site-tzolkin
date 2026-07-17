@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, TrendingDown, XCircle, Search } from 'lucide-react';
+import { AlertTriangle, TrendingDown, XCircle, Search, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from './Button';
 
 export function TrafficProblemSection() {
   const problems = [
@@ -16,7 +18,7 @@ export function TrafficProblemSection() {
     },
     {
       icon: XCircle,
-      text: "Na prática, você está pagando pra levar gente pra um lugar que ainda não está pronto pra converter."
+      text: "Na prática, você está pagando para levar pessoas a um lugar que ainda não está pronto para converter."
     }
   ];
 
@@ -36,7 +38,7 @@ export function TrafficProblemSection() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 mb-6">
                 <AlertTriangle className="w-4 h-4" />
-                <span className="text-sm font-medium uppercase tracking-wider">Atenção ao desperdício</span>
+                <span className="text-sm font-medium uppercase tracking-wider">Diagnóstico TZOLKIN</span>
               </div>
 
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
@@ -49,9 +51,9 @@ export function TrafficProblemSection() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-foreground leading-relaxed max-w-2xl mx-auto font-helvica"
+              className="text-lg text-foreground leading-relaxed max-w-2xl mx-auto"
             >
-              Você compra clique, compra visualização, compra lead… mas se a marca não estiver clara, posicionada e preparada, a maioria entra, olha rápido e vai embora.
+              Você compra clique, compra visualização, compra lead — mas, se a marca não estiver clara, posicionada e preparada, a maioria entra, olha rápido e vai embora.
             </motion.p>
           </div>
 
@@ -91,6 +93,22 @@ export function TrafficProblemSection() {
             <p className="relative z-10 text-xl text-foreground mt-4">
               Se a marca está confusa, você só amplia a confusão.
             </p>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-12 flex justify-center"
+          >
+            <Link href="/forms">
+              <Button variant="primary" size="lg" className="rounded-full px-8 h-14 text-lg bg-foreground text-background hover:bg-foreground/90 group">
+                Quero parar de desperdiçar verba
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </motion.div>
 
         </div>

@@ -3,8 +3,8 @@ import { Header } from '@/client/shared/ui/Header';
 import { Footer } from '@/client/shared/ui/Footer';
 
 export const metadata = {
-  title: "Personalizado | tzolkin",
-  description: "Conheça nossas capacidades, metodologia e todas as integrações que dominamos.",
+  title: "Capacidades",
+  description: "Capacidades, metodologia e integrações da TZOLKIN: software sob medida, pagamentos, tagueamento e automações de alto padrão.",
 };
 
 export default function CatalogoLayout({ children }: { children: React.ReactNode }) {

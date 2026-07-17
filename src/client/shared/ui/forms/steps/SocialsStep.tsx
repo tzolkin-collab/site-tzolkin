@@ -19,9 +19,13 @@ export function SocialsStep() {
       instagram: data.instagram,
       website: data.website
     });
-    const service = searchParams.get('service');
-    const query = service ? `?service=${encodeURIComponent(service)}` : '';
-    router.push(`/forms/servico${query}`);
+    const query = new URLSearchParams();
+    ['service', 'interesse'].forEach((key) => {
+      const value = searchParams.get(key);
+      if (value) query.set(key, value);
+    });
+    const qs = query.toString();
+    router.push(`/forms/servico${qs ? `?${qs}` : ''}`);
   };
 
   return (
@@ -37,13 +41,13 @@ export function SocialsStep() {
         </div>
         <div>
           <h2 className="text-sm font-bold uppercase tracking-widest text-brand mb-1">Passo 3 de 4</h2>
-          <h3 className="text-3xl font-bold text-foreground">Presença Digital</h3>
+          <h3 className="text-3xl font-bold text-foreground">Presença digital</h3>
         </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <div className="group/field">
-          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Instagram da Marca</label>
+          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Instagram da marca</label>
           <div className="relative flex items-center">
             <span className="absolute left-4 text-foreground/50 font-bold text-xl">@</span>
             <input
@@ -56,7 +60,7 @@ export function SocialsStep() {
         </div>
 
         <div className="group/field">
-          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Site Atual (Opcional)</label>
+          <label className="block text-sm font-bold uppercase tracking-widest text-foreground/70 mb-2 group-focus-within/field:text-brand transition-colors">Site atual (opcional)</label>
           <input
             {...register('website')}
             className="w-full bg-foreground/5 px-4 rounded-xl border border-border focus:border-brand outline-none py-4 text-xl transition-all placeholder:text-foreground/30 focus:bg-background"
@@ -69,9 +73,13 @@ export function SocialsStep() {
           <button
             type="button"
             onClick={() => {
-              const service = searchParams.get('service');
-              const query = service ? `?service=${encodeURIComponent(service)}` : '';
-              router.push(`/forms/empresa${query}`);
+              const query = new URLSearchParams();
+              ['service', 'interesse'].forEach((key) => {
+                const value = searchParams.get(key);
+                if (value) query.set(key, value);
+              });
+              const qs = query.toString();
+              router.push(`/forms/empresa${qs ? `?${qs}` : ''}`);
             }}
             className="text-muted-foreground hover:text-foreground font-bold tracking-widest uppercase text-sm flex items-center gap-2 transition-colors"
           >

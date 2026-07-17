@@ -1,28 +1,35 @@
 'use client'
 
-import * as React from 'react'
 import { useTheme } from 'next-themes'
 import { Button } from '@/client/shared/ui/Button'
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
 
+  // Decisão documentada: o hack anterior (injetar um <style> com
+  // `transition:none!important` no <head> e removê-lo após 2 rAF) foi
+  // removido. As transições do site são curtas (≤500ms) e as cores mudam
+  // via CSS vars, então a troca de tema vira um crossfade suave, sem
+  // flicker perceptível. O hack era frágil: o timing de rAF não é
+  // garantido, o <style> podia vazar se algo falhasse entre append/remove
+  // e a regra global matava inclusive a animação do próprio ícone.
+  // Uma desativação global robusta exigiria uma regra no globals.css
+  // (fora de escopo nesta rodada) — inline style no documentElement não
+  // cascateia para os descendentes, então não substitui a folha de estilo.
   const toggle = () => {
-    const css = document.createElement('style')
-    css.textContent = '*,*::before,*::after{transition:none!important}'
-    document.head.appendChild(css)
     setTheme(theme === 'dark' ? 'light' : 'dark')
-    requestAnimationFrame(() => requestAnimationFrame(() => document.head.removeChild(css)))
   }
 
   return (
+    // p-0! (important) vence o px-4 do size="sm" do Button: a ordem das
+    // classes no atributo não resolve conflito de padding no Tailwind.
     <Button
       variant="ghost"
       size="sm"
       onClick={toggle}
-      className="rounded-full w-9 h-9 p-0"
+      className="rounded-full w-9 h-9 p-0!"
     >
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">Alternar tema</span>
       <div className="relative w-4 h-4 overflow-hidden">
         <svg
           className="absolute inset-0 w-full h-full transition-transform duration-200 scale-100 rotate-0 dark:scale-0 dark:-rotate-90"

@@ -12,9 +12,10 @@
 
   --border: oklch(0.922 0 0);
 
-  --brand: #1d1d1d;
-  --brand2: #000000;
-  --brand-foreground: #000000;
+  --brand: #4a21bb;            /* TZOLKIN highlight — fills, bg, ícones, glows (violeta) */
+  --brand-ink: #5660f1;        /* violeta p/ TEXTO/links sobre fundo claro (AA 4.8:1) */
+  --brand2: #454dbe;           /* accent secundário / chart-2 */
+  --brand-foreground: #ffffff; /* texto SOBRE preenchimentos brand (branco = 9.4:1; preto reprova) */
 
   /* Animation Bezier */
   --ease-sophisticated: cubic-bezier(0.16, 1, 0.3, 1);
@@ -33,11 +34,14 @@
   --destructive: oklch(0.577 0.245 27.325);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  /* TZOLKIN chart palette — monocromática branco/cinza (light: superfície branca → tons escuros) */
+  --chart-1: var(--foreground);     /* preto (série primária) */
+  --chart-2: var(--muted-foreground); /* cinza médio */
+  --chart-3: #525252;  /* cinza escuro (neutral-600) */
+  --chart-4: #262626;  /* quase preto (neutral-800) */
+  --chart-5: #a3a3a3;  /* cinza claro (neutral-400) */
+  --chart-positive: #008300;
+  --chart-negative: #e34948;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -59,9 +63,10 @@
 
   --border: oklch(1 0 0 / 10%);
 
-  --brand: #ffffff;
-  --brand2: #5660f1;
-  --brand-foreground: #000000;
+  --brand: #8670ff;            /* TZOLKIN highlight — fills, bg, ícones, glows (violeta) */
+  --brand-ink: #8670ff;        /* no escuro o violeta claro já é AA (4.9:1); o escuro reprovava */
+  --brand2: #454dbe;
+  --brand-foreground: #000000; /* texto SOBRE brand claro (preto = 5.8:1) */
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -75,11 +80,14 @@
   --destructive: oklch(0.704 0.191 22.216);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  /* TZOLKIN chart palette — monocromática branco/cinza (dark: superfície escura → tons claros) */
+  --chart-1: var(--foreground);     /* branco (série primária) */
+  --chart-2: var(--muted-foreground); /* cinza médio */
+  --chart-3: #d4d4d4;  /* cinza claro (neutral-300) */
+  --chart-4: #f5f5f5;  /* quase branco (neutral-100) */
+  --chart-5: #737373;  /* cinza médio-escuro (neutral-500) */
+  --chart-positive: #2f9e2f;
+  --chart-negative: #e66767;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -91,6 +99,11 @@
 }
 
 @theme inline {
+  /* Desktop = só computador + tablet em paisagem (>=1024px).
+     Movemos o breakpoint `md` de 768px para 1024px para que os gatilhos
+     `md:` (usados no site como "desktop") não ativem em tablet retrato. */
+  --breakpoint-md: 64rem;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -100,6 +113,7 @@
   --color-border: var(--border);
 
   --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
   --color-brand2: var(--brand2);
   --color-brand-foreground: var(--brand-foreground);
 
@@ -133,6 +147,10 @@
   --color-chart-2: var(--chart-2);
 
   --color-chart-1: var(--chart-1);
+
+  --color-chart-positive: var(--chart-positive);
+
+  --color-chart-negative: var(--chart-negative);
 
   --color-ring: var(--ring);
 

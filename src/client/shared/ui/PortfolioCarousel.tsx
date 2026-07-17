@@ -66,7 +66,7 @@ export function PortfolioCarousel({ projects, showEmbeds = false }: PortfolioCar
                         <div className="relative w-full h-full z-10 transition-transform duration-500 group-hover:scale-105">
                           <Image
                             src={project.logo}
-                            alt={`${project.name} Project`}
+                            alt={`Logo de ${project.name}`}
                             fill
                             sizes="(max-width: 640px) 85vw, (max-width: 768px) 45vw, (max-width: 1024px) 25vw, 20vw"
                             className={`object-contain transition-transform duration-500 ${project.bright ? 'brightness-0' : ''} ${project.invert ? 'invert dark:invert-0' : ''}`}
@@ -80,7 +80,7 @@ export function PortfolioCarousel({ projects, showEmbeds = false }: PortfolioCar
                       <div className="relative w-full h-full z-10 transition-transform duration-500 group-hover:scale-105">
                         <Image
                           src={project.logo}
-                          alt={`${project.name} Project`}
+                          alt={`Logo de ${project.name}`}
                           fill
                           sizes="(max-width: 640px) 85vw, (max-width: 768px) 45vw, (max-width: 1024px) 25vw, 20vw"
                           className={`object-contain transition-transform duration-500 ${project.bright ? 'brightness-0' : ''} ${project.invert ? 'invert dark:invert-0' : ''}`}

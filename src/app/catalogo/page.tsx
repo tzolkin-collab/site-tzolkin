@@ -8,37 +8,37 @@ import Link from 'next/link';
 const capabilities = [
   {
     icon: Globe,
-    title: 'Sites & Landing Pages',
+    title: 'Sites e landing pages',
     description: 'Páginas institucionais e de conversão com Next.js, SSG e performance sub-segundo.',
     color: '#635BFF'
   },
   {
     icon: CreditCard,
-    title: 'Pagamentos Globais',
-    description: 'Stripe Connect, Pix API, split de pagamentos e checkout transparente multi-moeda.',
+    title: 'Pagamentos globais',
+    description: 'Stripe Connect, API Pix, split de pagamentos e checkout transparente multi-moeda.',
     color: '#FFD100'
   },
   {
     icon: QrCode,
-    title: 'Cardápios Virtuais',
+    title: 'Cardápios virtuais',
     description: 'QR Code na mesa, categorias inteligentes e painel admin em tempo real.',
     color: '#22C55E'
   },
   {
     icon: RefreshCw,
-    title: 'Cobranças Recorrentes',
+    title: 'Cobranças recorrentes',
     description: 'Régua de cobrança inteligente com retry automático, multi-método e portal do assinante.',
     color: '#A855F7'
   },
   {
     icon: BarChart3,
-    title: 'Tagueamento & Analytics',
-    description: 'GTM Server-Side, Meta CAPI, UTMify e rastreamento 100% preciso de cada conversão.',
+    title: 'Tagueamento e analytics',
+    description: 'GTM server-side, Meta CAPI, UTMify e rastreamento de cada conversão, do clique à venda.',
     color: '#EF4444'
   },
   {
     icon: Code2,
-    title: 'APIs & Integrações',
+    title: 'APIs e integrações',
     description: 'Webhooks, REST APIs, automações com n8n, CRM e qualquer sistema terceiro.',
     color: '#06B6D4'
   },
@@ -60,13 +60,13 @@ const integrations = [
   { name: 'Evolution API', category: 'Comunicação' },
   { name: 'n8n', category: 'Automação' },
   { name: 'Redis', category: 'Infra' },
-  { name: 'PostgreSQL', category: 'Banco de Dados' },
+  { name: 'PostgreSQL', category: 'Banco de dados' },
 ];
 
 const methodology = [
   { step: '01', title: 'Discovery', description: 'Entendemos sua operação, público-alvo, concorrência e gargalos. Definimos KPIs mensuráveis.' },
   { step: '02', title: 'Arquitetura', description: 'Desenhamos a topologia do sistema, fluxos de dados, integrações e stack tecnológico.' },
-  { step: '03', title: 'MVP Incremental', description: 'Entregamos rápido. Cada sprint valida hipóteses com dados reais antes de escalar.' },
+  { step: '03', title: 'MVP incremental', description: 'Entregamos rápido. Cada sprint valida hipóteses com dados reais antes de escalar.' },
   { step: '04', title: 'Otimização', description: 'Observabilidade contínua. A/B tests, CRO, performance e refinamento orientado a ROI.' },
 ];
 
@@ -84,15 +84,15 @@ export default function CatalogoPage() {
           <span>Personalizado</span>
         </div>
         <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground mb-6 leading-tight">
-          Cada Projeto é Único.<br />
-          <span className="text-brand">A Solução Também.</span>
+          Cada projeto é único.<br />
+          <span className="text-brand">A solução também.</span>
         </h1>
         <p className="text-xl text-foreground/60 leading-relaxed max-w-2xl mx-8">
-          Não vendemos pacotes genéricos. Construímos infraestrutura digital sob medida para a realidade da sua operação, com tecnologia de ponta e foco em ROI.
+          Capacidades, metodologia e integrações da TZOLKIN: software sob medida, IA, cybersecurity, web design e desenvolvimento — cada solução desenhada para a realidade da sua operação.
         </p>
       </motion.div>
 
-      {/* O que a tzolkin faz */}
+      {/* O que a TZOLKIN faz */}
       <section className="mb-28">
         <div className="text-center mb-16">
           <div className="w-12 h-[3px] bg-brand mx-auto mb-6" />
@@ -115,7 +115,7 @@ export default function CatalogoPage() {
                 <cap.icon className="w-6 h-6" style={{ color: cap.color }} />
               </div>
               <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">{cap.title}</h3>
-              <p className="text-foreground/61 leading-relaxed">{cap.description}</p>
+              <p className="text-foreground/60 leading-relaxed">{cap.description}</p>
             </motion.div>
           ))}
         </div>
@@ -150,7 +150,7 @@ export default function CatalogoPage() {
       <section className="mb-28 px-6 md:px-0">
         <div className="text-center mb-16">
           <div className="w-12 h-[3px] bg-brand mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">Stack & Integrações</h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-foreground mb-4">Stack e integrações</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">Ferramentas e plataformas que dominamos e integramos nativamente nos seus projetos.</p>
         </div>
         <div className="flex flex-wrap justify-center gap-3">
@@ -170,7 +170,7 @@ export default function CatalogoPage() {
         </div>
       </section>
 
-      {/* CTA — Projetos Específicos */}
+      {/* CTA — Projetos específicos */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -178,18 +178,18 @@ export default function CatalogoPage() {
         className="bg-foreground mx-5 text-background border-brand border rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl mb-10"
       >
         <div className="max-w-2xl text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start mb-4">
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
             <Sparkles className="w-8 h-8 opacity-70" />
-            <h3 className="text-3xl md:text-4xl font-foreground uppercase tracking-tight">Projetos Específicos</h3>
+            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tight">Projetos específicos</h3>
           </div>
           <p className="text-background text-lg font-medium">
             Sua operação precisa de integrações complexas de banco de dados, painéis administrativos, webhooks ou automações que não estão listadas acima?
           </p>
         </div>
         <div className="shrink-0 w-full md:w-auto mt-4 md:mt-0">
-          <Link href="/forms?service=Sob%20Demanda">
-            <button className="w-full md:w-auto h-16 px-10 rounded-full bg-background text-foreground hover:bg-white/20 hover:text-black hover:border hover:border-black text-lg tracking-wide uppercase font-bold flex items-center justify-center gap-3 transition-all">
-              Consultoria Gratuita
+          <Link href="/forms?interesse=consultoria">
+            <button className="w-full md:w-auto h-14 px-6 text-base md:h-16 md:px-10 md:text-lg whitespace-nowrap rounded-full bg-background text-foreground hover:bg-white/20 hover:text-black hover:border hover:border-black tracking-wide uppercase font-bold flex items-center justify-center gap-3 transition-all">
+              Quero um diagnóstico gratuito
               <ArrowRight className="w-5 h-5" />
             </button>
           </Link>

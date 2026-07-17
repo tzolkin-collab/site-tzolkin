@@ -26,23 +26,32 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Tzolkin | Sofisticação em cada linha",
-  description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível. Transforme a presença digital da sua empresa com a Tzolkin.",
+  title: {
+    default: "TZOLKIN | Software de alto padrão",
+    template: "%s | TZOLKIN",
+  },
+  description:
+    "Software de alto padrão: consultoria, produtos white-label e sob medida, e ferramentas próprias — de IA a cybersecurity, do desenvolvimento ao educacional.",
   icons: {
-    icon: '/logotzolkin.svg',
-    shortcut: '/logotzolkin.svg',
-    apple: '/logotzolkin.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logotzolkin.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: light)' },
+      { url: '/logotzolkin-white.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: dark)' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Tzolkin | Sofisticação em cada linha",
-    description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível.",
-    siteName: "Tzolkin",
+    title: "TZOLKIN | Software de alto padrão",
+    description:
+      "Consultoria, produtos white-label e sob medida, e ferramentas próprias — de IA a cybersecurity, do desenvolvimento ao educacional.",
+    siteName: "TZOLKIN",
     images: [
       {
-        url: "/logotzolkin.svg",
-        width: 800,
-        height: 600,
-        alt: "Tzolkin Logo"
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TZOLKIN — Software de alto padrão",
       },
     ],
     locale: "pt_BR",
@@ -50,12 +59,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tzolkin | Sofisticação em cada linha",
-    description: "Desenvolvimento de softwares, aplicativos e websites com design de alto nível.",
-    images: ["/logotzolkin.svg"],
+    title: "TZOLKIN | Software de alto padrão",
+    description:
+      "Consultoria, produtos white-label e sob medida, e ferramentas próprias — de IA a cybersecurity, do desenvolvimento ao educacional.",
+    images: ["/og-image.jpg"],
   },
-  keywords: ["desenvolvimento web", "aplicativos", "software", "design", "tzolkin", "tecnologia"],
-  authors: [{ name: "Tzolkin" }],
+  keywords: [
+    "software",
+    "software house",
+    "consultoria de software",
+    "desenvolvimento de software",
+    "white-label",
+    "SaaS",
+    "inteligência artificial",
+    "cybersecurity",
+    "web design",
+    "TZOLKIN",
+  ],
+  authors: [{ name: "TZOLKIN" }],
 };
 
 export default function RootLayout({

@@ -1,5 +1,10 @@
 export type EventName = 'lead' | 'initiate_checkout' | 'page_view' | 'form_started';
 
+// Flag de debug: ativa em desenvolvimento ou via NEXT_PUBLIC_ANALYTICS_DEBUG=true
+const ANALYTICS_DEBUG =
+  process.env.NODE_ENV !== 'production' ||
+  process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === 'true';
+
 interface CustomWindow extends Window {
   dataLayer?: Record<string, unknown>[];
   utmify?: (action: string, eventName: string, payload?: Record<string, unknown>) => void;
@@ -22,8 +27,8 @@ export const trackEvent = (eventName: EventName, payload?: Record<string, unknow
       win.utmify('track', eventName, payload);
     }
     
-    // Fallback de logging em dev mode
-    if (process.env.NODE_ENV === 'development') {
+    // Fallback de logging apenas com a flag de debug ativa
+    if (ANALYTICS_DEBUG) {
       console.log(`[Analytics Tracked] ${eventName}`, payload);
     }
 
